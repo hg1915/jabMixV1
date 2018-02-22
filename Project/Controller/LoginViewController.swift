@@ -43,16 +43,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             
        self.navigationItem.setHidesBackButton(true, animated: false)
         self.navigationItem.setLeftBarButton(nil, animated: true)
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
-//        self.navigationController?.navigationBar.isTranslucent = true
-//        self.navigationController?.view.backgroundColor = UIColor.clear
-        
         self.navigationController?.navigationBar.tintColor = UIColor.white
-      //  self.navigationItem.title = "SIGNUP"
         setGestureRecognizersToDismissKeyboard()
         self.tabBarController?.tabBar.isHidden = true
-      //  setUpButtons()
         
     }
     
@@ -132,7 +125,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationItem.setHidesBackButton(true, animated: false)
-//        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -142,7 +134,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
  
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)

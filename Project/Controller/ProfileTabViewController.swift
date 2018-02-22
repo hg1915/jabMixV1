@@ -1,10 +1,4 @@
-//
-//  ProfileTabViewController.swift
-//  jabMix1
-//
-//  Created by HG on 12/27/17.
-//  Copyright © 2017 GGTECH. All rights reserved.
-//
+
 
 import UIKit
 import FirebaseDatabase
@@ -14,11 +8,7 @@ import Firebase
 
 class ProfileTabViewController: UIViewController {
 
-// 
-//    @IBAction func changePhoto(_ sender: Any) {
-//      // loadUserInfo()
-//        updatePhoto()
-//    }
+
     
     @IBOutlet weak var biog: UILabel!
     

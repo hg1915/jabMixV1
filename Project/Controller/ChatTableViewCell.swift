@@ -1,10 +1,3 @@
-//
-//  ChatTableViewCell.swift
-//  jabMix1
-//
-//  Created by Robert Canton on 2018-01-21.
-//  Copyright © 2018 GGTECH. All rights reserved.
-//
 
 import UIKit
 import Firebase

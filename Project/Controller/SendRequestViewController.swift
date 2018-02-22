@@ -141,20 +141,6 @@ class SendRequestViewController: UIViewController, UITextViewDelegate {
         //loadUserInfo()
         createDatePicker()
         
-//
-//        let datePicker = UIDatePicker()
-//        datePicker.datePickerMode = UIDatePickerMode.date
-//        datePicker.addTarget(self, action: #selector(SendRequestViewController.datePickerValueChanged(sender:)), for: UIControlEvents.valueChanged)
-//        dateField.inputView = datePicker
-        
-//        
-//        let timePicker = UIDatePicker()
-//        
-//        timePicker.addTarget(self, action: #selector(SendRequestViewController.timePickerValueChanged(sender:)), for: UIControlEvents.valueChanged)
-//        timePicker.datePickerMode = UIDatePickerMode.time
-//        timeField.inputView = timePicker
-        
-        // Do any additional setup after loading the view.
     }
 
     let picker = UIDatePicker()

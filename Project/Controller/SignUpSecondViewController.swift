@@ -75,34 +75,24 @@ class SignUpSecondViewController: UIViewController, BEMCheckBoxDelegate, UITextV
         }else {
             
              SVProgressHUD.show()
-            print("WAD")
             getLocationFromPostalCode(postalCode: zipCode) { (location) in
-//                guard let location = location else {
-//                    print("no location")
-//                    return
-//                }
-//
-               
-                
                 self.view.endEditing(true)
                 self.authService.signUP(firstLastName: nameText, email: finalEmail, location: location ?? "Unknown", biography: biography, password: self.password, interests: interests, pictureData: pictureD! as NSData)
                
             }
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "NewTabBarViewController") as! UIViewController
         }
          SVProgressHUD.dismiss()
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "NewTabBarViewController") as! UIViewController
-        // Alternative way to present the new view controller
-        //self.navigationController?.present(vc, animated: true, completion: nil)
+   
     }
         
 
     @IBAction func completeButtonAction(_ sender: Any) {
        
-        
         submitPressed()
-        
-
+    
     }
     @IBOutlet weak var completeButton: UIButton!
 

@@ -65,10 +65,6 @@
 		C7C6DFBE201AD4EC00A2D1BE /* DesignableUITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C6DFBD201AD4EC00A2D1BE /* DesignableUITextField.swift */; };
 		C7C9B0C1200303740056394F /* SendRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C9B0C0200303740056394F /* SendRequestViewController.swift */; };
 		C7CBBC572031016E00E085C0 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CBBC562031016E00E085C0 /* TermsViewController.swift */; };
-		C7D743932022A8E6000F880D /* PL.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D743922022A8E4000F880D /* PL.png */; };
-		C7D743952022A969000F880D /* if_edit_172462.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D743942022A967000F880D /* if_edit_172462.png */; };
-		C7D743972022AA9B000F880D /* if_pencil_1891403.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D743962022AA9A000F880D /* if_pencil_1891403.png */; };
-		C7D743992022AB6F000F880D /* if_pencil_42289.png in Resources */ = {isa = PBXBuildFile; fileRef = C7D743982022AB6D000F880D /* if_pencil_42289.png */; };
 		C7E14FE1200855EA00133BB7 /* JabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E14FE0200855EA00133BB7 /* JabsViewController.swift */; };
 		C7F4CA891FA6DFC500450690 /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F4CA881FA6DFC500450690 /* Extention.swift */; };
 		C7F5DE301F8A026600A49575 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F5DE2F1F8A026600A49575 /* LoginViewController.swift */; };
@@ -147,10 +143,6 @@
 		C7C6DFBD201AD4EC00A2D1BE /* DesignableUITextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DesignableUITextField.swift; path = ../../DesignableUITextField.swift; sourceTree = "<group>"; };
 		C7C9B0C0200303740056394F /* SendRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendRequestViewController.swift; sourceTree = "<group>"; };
 		C7CBBC562031016E00E085C0 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
-		C7D743922022A8E4000F880D /* PL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PL.png; sourceTree = "<group>"; };
-		C7D743942022A967000F880D /* if_edit_172462.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = if_edit_172462.png; sourceTree = "<group>"; };
-		C7D743962022AA9A000F880D /* if_pencil_1891403.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = if_pencil_1891403.png; sourceTree = "<group>"; };
-		C7D743982022AB6D000F880D /* if_pencil_42289.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = if_pencil_42289.png; sourceTree = "<group>"; };
 		C7E14FE0200855EA00133BB7 /* JabsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JabsViewController.swift; sourceTree = "<group>"; };
 		C7F4CA881FA6DFC500450690 /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
 		C7F5DE2F1F8A026600A49575 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -355,10 +347,6 @@
 				B00F28A92013C60700567AB3 /* InitialViewController.swift */,
 				C7BBEB4D201B9FA90085AFCE /* UIImage+Gif.swift */,
 				C79D319C20217C3600D68E84 /* newBG.png */,
-				C7D743922022A8E4000F880D /* PL.png */,
-				C7D743962022AA9A000F880D /* if_pencil_1891403.png */,
-				C7D743982022AB6D000F880D /* if_pencil_42289.png */,
-				C7D743942022A967000F880D /* if_edit_172462.png */,
 				C7A12CAE202171C200F88994 /* jmbg */,
 			);
 			path = Controller;
@@ -459,14 +447,10 @@
 				7003E810203181DD0068F87E /* Classes in Resources */,
 				C79D319D20217C3A00D68E84 /* newBG.png in Resources */,
 				C7BF08301F89FE8800880BA0 /* LaunchScreen.storyboard in Resources */,
-				C7D743932022A8E6000F880D /* PL.png in Resources */,
 				C7A12CB0202171C700F88994 /* jmbg in Resources */,
 				B03F56901FB264CA00A3A6BD /* Assets.xcassets in Resources */,
 				C78CEB8D1F96E39A000536BB /* GoogleService-Info.plist in Resources */,
-				C7D743992022AB6F000F880D /* if_pencil_42289.png in Resources */,
 				C7AD389E201EC5AC00DB4452 /* LucidaGrandeBold.ttf in Resources */,
-				C7D743972022AA9B000F880D /* if_pencil_1891403.png in Resources */,
-				C7D743952022A969000F880D /* if_edit_172462.png in Resources */,
 				C73EB34E20057E830080167D /* IQKeyboardManager.bundle in Resources */,
 				C7BF082B1F89FE8800880BA0 /* Main.storyboard in Resources */,
 				C7AD389D201EC5AC00DB4452 /* LucidaGrande.ttf in Resources */,

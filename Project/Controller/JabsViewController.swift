@@ -33,14 +33,6 @@ class JabsViewController: UIViewController, UITableViewDelegate, UITableViewData
         super.viewDidLoad()
 
         
-       
-        
-        
-//        self.edgesForExtendedLayout = UIRectEdge()
-//        self.extendedLayoutIncludesOpaqueBars = false
-//        self.automaticallyAdjustsScrollViewInsets = false
-
-//
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         tableView = UITableView(frame: view.bounds, style: .plain)
@@ -159,7 +151,24 @@ class JabsViewController: UIViewController, UITableViewDelegate, UITableViewData
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        
+        var numOfSections: Int = 0
+        if requests.isEmpty == false
+        {
+            tableView.separatorStyle = .singleLine
+            numOfSections            = 1
+            tableView.backgroundView = nil
+        }
+        else
+        {
+            let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
+            noDataLabel.text          = "You have not sent or received any jabs!"
+            noDataLabel.textColor     = UIColor.lightGray
+            noDataLabel.textAlignment = .center
+            tableView.backgroundView  = noDataLabel
+            tableView.separatorStyle  = .none
+        }
+        return numOfSections
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -1,10 +1,3 @@
-//
-//  ChatsTableViewController.swift
-//  jabMix1
-//
-//  Created by Robert Canton on 2018-01-21.
-//  Copyright © 2018 GGTECH. All rights reserved.
-//
 
 import Foundation
 import UIKit
@@ -82,7 +75,24 @@ class ChatsTableViewController:UIViewController, UITableViewDelegate, UITableVie
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        
+        var numOfSections: Int = 0
+        if conversations.isEmpty == false
+        {
+            tableView.separatorStyle = .singleLine
+            numOfSections            = 1
+            tableView.backgroundView = nil
+        }
+        else
+        {
+            let noDataLabel: UILabel     = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
+            noDataLabel.text          = "Request a user to open chat!"
+            noDataLabel.textColor     = UIColor.lightGray
+            noDataLabel.textAlignment = .center
+            tableView.backgroundView  = noDataLabel
+            tableView.separatorStyle  = .none
+        }
+        return numOfSections
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -114,7 +124,7 @@ class ChatsTableViewController:UIViewController, UITableViewDelegate, UITableVie
     func observeConversations() {
         guard let user = Auth.auth().currentUser else { return }
         let ref = Database.database().reference().child("conversations/users/\(user.uid)")
-        ref.observe(.value, with: { snapshot in
+        ref.queryOrdered(byChild: "timestamp").observe(.value, with: { snapshot in
 
             var _conversations = [Conversation]()
             for child in snapshot.children {
@@ -134,7 +144,7 @@ class ChatsTableViewController:UIViewController, UITableViewDelegate, UITableVie
                     _conversations.append(conversation)
                 }
             }
-            self.conversations = _conversations
+            self.conversations = _conversations.reversed()
             self.tableView.reloadData()
 
         })

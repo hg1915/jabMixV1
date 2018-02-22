@@ -11,6 +11,8 @@ import UIKit
 class TermsViewController: UIViewController {
 
     override func viewDidLoad() {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        self.navigationItem.title = "TOS/PRIVACY"
         super.viewDidLoad()
 termsView.isEditable = false
         // Do any additional setup after loading the view.

@@ -50,7 +50,7 @@ class HomeTableViewController: UITableViewController {
     
     func fetchUsers(){
         
-        dataBaseRef.child("users").observe(.value, with: { (snapshot) in
+        dataBaseRef.child("users").queryOrdered(byChild: "firstLastName").observe(.value, with: { (snapshot) in
             var results = [Users]()
             
             for user in snapshot.children {

@@ -162,28 +162,13 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         self.inputToolbar.contentView?.textView?.font = UIFont(name: "Lucida Grande", size: 16)!
         
         self.inputToolbar.contentView.backgroundColor = UIColor("#D8D8D8")
-        
-     //   self.inputToolbar.contentView.backgroundColor = UIColor.blue
-//        self.inputToolbar.contentView.rightBarButtonItem.setTitleColor(UIColor.red, for: .normal)
-       // self.inputToolbar.contentView.leftBarButtonItemWidth = 0
-       
-      //  self.inputToolbar.contentView.textView.text.
+
         self.inputToolbar.preferredDefaultHeight = 45
         self.inputToolbar.contentView.textView.placeHolder = ""
         self.inputToolbar.contentView.textView.keyboardAppearance = .light
-//        self.inputToolbar.contentView.textView.textAlignment = NSTextAlignment(rawValue: 20)!
-      
-        //collectionView?.collectionViewLayout.incomingAvatarViewSize = CGSize(width: 32, height: 32)
-collectionView?.collectionViewLayout.outgoingAvatarViewSize = .zero
-//
-//        // Swift
-//        if #available(iOS 11.0, *){
-//            self.collectionView?.contentInsetAdjustmentBehavior = .never
-//            self.collectionView?.contentInset = UIEdgeInsetsMake(64, 0, 0, 0)
-//            self.collectionView?.scrollIndicatorInsets = self.collectionView.contentInset
-//        }
 
-      //  collectionView?.collectionViewLayout.springinessEnabled = true
+collectionView?.collectionViewLayout.outgoingAvatarViewSize = .zero
+
         collectionView?.backgroundColor = UIColor("#D8D8D8")
         collectionView?.reloadData()
 

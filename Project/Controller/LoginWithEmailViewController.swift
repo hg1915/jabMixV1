@@ -1,10 +1,3 @@
-//
-//  LoginWithEmailViewController.swift
-//  jabMix1
-//
-//  Created by HG on 12/13/17.
-//  Copyright © 2017 GGTECH. All rights reserved.
-//
 
 import UIKit
 import Firebase
@@ -15,8 +8,6 @@ import MessageUI
 import Foundation
 
 class LoginWithEmailViewController: UIViewController, UIAlertViewDelegate, MFMailComposeViewControllerDelegate {
-
-    //Firebase authentication
     var authService = AuthService()
     
     @IBAction func signInButton(_ sender: Any) {
@@ -42,8 +33,6 @@ class LoginWithEmailViewController: UIViewController, UIAlertViewDelegate, MFMai
                         print("\(user.displayName!) has been signed in")
                         
                        SVProgressHUD.dismiss()
-                        
-            //            self.enter()
                  self.performSegue(withIdentifier: "signInHome", sender: nil)
                         
                     }else{
@@ -83,8 +72,7 @@ class LoginWithEmailViewController: UIViewController, UIAlertViewDelegate, MFMai
                     alert.addAction(cancel)
                     self.present(alert, animated: true, completion: nil)
                     
-//                    alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-//                   self.present(alertController, animated: true, completion: nil)
+
                 }
             }
         }
@@ -152,16 +140,9 @@ class LoginWithEmailViewController: UIViewController, UIAlertViewDelegate, MFMai
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
-//        self.navigationController?.navigationBar.isTranslucent = true
-//        self.navigationController?.view.backgroundColor = UIColor.clear
-//        
-//        self.navigationController?.navigationBar.tintColor = UIColor.white
+        
         self.navigationItem.title = "LOGIN"
-       // setUpButtons()
         self.tabBarController?.tabBar.isHidden = true
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

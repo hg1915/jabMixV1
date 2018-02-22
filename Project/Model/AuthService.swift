@@ -17,7 +17,7 @@ struct AuthService{
 
     
     func signUP(firstLastName: String, email: String, location: String, biography: String, password: String, interests: String, pictureData: NSData!) {
-    
+    SVProgressHUD.show()
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
             if error == nil, let unwrappedUser = user{
 
@@ -129,37 +129,6 @@ struct AuthService{
     
 }
 
-//
-//extension EmailPasswordViewController {
-//    
-//    func resetPassword (){
-//        var email = ""
-//        let alertController = UIAlertController(title: "OOPS", message: "An email containing the steps to follow in order to reset your password has been sent to: \(email) ", preferredStyle: .alert)
-//        alertController.addTextField(configurationHandler: { (textfield) in
-//            textfield.placeholder = "Enter your email"
-//            
-//        })
-//        let textField = alertController.textFields!.first
-//        email = textField!.text!
-//        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-//        
-//        
-//        
-//        Auth.auth().sendPasswordReset(withEmail: email, completion: { (error) in
-//            if error == nil {
-//                
-//                self.present(alertController, animated: true, completion: nil)
-//                
-//            }else {
-//                print(error!.localizedDescription)
-//                
-//            }
-//        })
-//        
-//    }
-//    
-//    
-//}
 
 
 

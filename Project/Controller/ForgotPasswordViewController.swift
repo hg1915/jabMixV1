@@ -36,22 +36,27 @@ class ForgotPasswordViewController: UIViewController {
         
         if isValid(emailTextField.text!) == true{
             print("Test 1 passed")
+            Auth.auth().sendPasswordReset(withEmail: emailTextField.text!) { error in
+                
+                print(self.emailTextField.text)
+                self.view.endEditing(true)
+                self.showAlert(message: "Thank you")
+                // Your code here
+            }
+            
         }else{
+            self.view.endEditing(true)
+           self.showAlertNew(message: "Reenter email")
+            
             print("Test 1 failed")
         }
-        
-        if  isValidEmail(testStr: emailTextField.text!) == true {
-            print("test 2 passed")
-        }else {
-            print("test 2 failed")
-        }
-        
-        Auth.auth().sendPasswordReset(withEmail: emailTextField.text!) { error in
 
-            print(self.emailTextField.text)
-            self.showAlert(message: "Thank you")
-            // Your code here
-        }
+    }
+    
+    func showAlertNew(message : String) -> Void {
+        let alert = UIAlertController(title: "Enter correct email!", message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @IBOutlet weak var forgotPasswordOutlet: UIButton!
@@ -65,20 +70,10 @@ class ForgotPasswordViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-      // navigationController?.navigationBar.isHidden = true
-//    self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
-//        self.navigationController?.navigationBar.isTranslucent = true
-//        self.navigationController?.view.backgroundColor = UIColor.clear
-//        
-//        self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationItem.title = "FORGOT PASSWORD"
         
         self.tabBarController?.tabBar.isHidden = true
        
-        
-     //   setUpButtons()
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

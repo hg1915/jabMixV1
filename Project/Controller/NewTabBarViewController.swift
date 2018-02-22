@@ -1,10 +1,3 @@
-//
-//  NewTabBarViewController.swift
-//  jabMix1
-//
-//  Created by HG on 12/20/17.
-//  Copyright © 2017 GGTECH. All rights reserved.
-//
 
 import UIKit
 import Firebase
