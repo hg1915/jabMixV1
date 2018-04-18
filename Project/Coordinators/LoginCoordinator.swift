@@ -71,7 +71,7 @@ open class LoginCoordinator: FBTwitterCredentials {
     fileprivate var loginViewController: LoginViewController {
         if _loginViewController == nil {
             let viewController = instantiateLoginViewController()
-            
+            viewController.delegate = self
             _loginViewController = viewController
         }
         return _loginViewController!
@@ -130,6 +130,7 @@ open class LoginCoordinator: FBTwitterCredentials {
         _navigationController = nil
         _initialViewController = nil
         _loginViewController = nil
+        _preferencesViewController = nil
         
     }
     
@@ -165,10 +166,19 @@ open class LoginCoordinator: FBTwitterCredentials {
         visibleViewController()?.navigationController?.pushViewController(prefVC, animated: true)
     }
     
+    func toLogin(_ viewController: UIViewController){
+        visibleViewController()?.navigationController?.popViewController(animated: true)
+        visibleViewController()?.navigationController?.pushViewController(loginViewController, animated: true)
+    }
+    
     
 }
 
 extension LoginCoordinator: SignUpViewControllerDelegate{
+    func loginButtonPressed(_ viewcontroller: UIViewController) {
+        toLogin(viewcontroller)
+    }
+    
     func signUpButtonPressed(_ viewcontroller: UIViewController, user: UserPass) {
         toPreferences(viewcontroller, user: user)
     }
@@ -177,6 +187,10 @@ extension LoginCoordinator: SignUpViewControllerDelegate{
 }
 
 extension LoginCoordinator: PreferencesViewControllerDelegate{
+    
+}
+
+extension LoginCoordinator: LoginViewControllerDelegate{
     
 }
 

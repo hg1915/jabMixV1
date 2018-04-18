@@ -49,7 +49,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         registerForNotifications()
         
-        logUser()
+        if Auth.auth().currentUser?.uid != nil {
+            
+            //user is logged in
+            
+            logUser()
+            
+        }else{
+            
+            //user is not logged in
+            let loginCoordinator: LoginCoordinator = {
+                return LoginCoordinator(window: self.window!)
+            }()
+            
+            loginCoordinator.start()
+            
+        }
+        
         
         // Listen for changes in the users authenication state
 //        Auth.auth().addStateDidChangeListener { auth, user in
@@ -73,8 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         if Auth.auth().currentUser != nil {
             DispatchQueue.main.async {
-                let tabBar = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "NewTabBarViewController") as! NewTabBarViewController
-                 self.window?.rootViewController = tabBar
+                 self.window?.rootViewController = instantiatePreferencesViewController()
             }
         }
         

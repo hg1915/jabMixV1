@@ -67,7 +67,7 @@ class HomeTableViewController: UITableViewController {
             }
             
             self.usersArray = results.sorted(by: { (u1, u2) -> Bool in
-                u1.firstLastName < u2.firstLastName
+                u1.firstLastName! < u2.firstLastName!
             })
             self.partnersTableView.reloadData()
             

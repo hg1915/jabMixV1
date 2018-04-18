@@ -10,21 +10,83 @@ protocol PreferencesViewControllerDelegate: class {
 
 class PreferencesViewController: UIViewController, BEMCheckBoxDelegate, UITextViewDelegate, UITextFieldDelegate {
 
+    //MARK:Variables
+    weak var delegate: PreferencesViewControllerDelegate?
+    
+    var user: UserPass?
+    var authService = AuthService()
+    var options = [String]()
+    
+    
+    //MARK: Outlets
     @IBOutlet weak var pictureDataSent: UIImageView!
     
     @IBOutlet weak var sentPic: UIImageView!
     
-    weak var delegate: PreferencesViewControllerDelegate?
+    @IBOutlet weak var bioTextView: UITextView!
     
-    var user: UserPass?
+    @IBOutlet weak var completeButton: UIButton!
     
-//    var name = String()
-//    var email = String()
-//    var password = String()
-//    var pictureData = UIImage()
-//    var interests = String()
-//    var zipCode = String()
-//    var zipLoca = String()
+    @IBOutlet weak var boxing: BEMCheckBox!
+    
+    @IBOutlet weak var kickboxing: BEMCheckBox!
+    
+    @IBOutlet weak var jiujitsu: BEMCheckBox!
+    
+    @IBOutlet weak var karate: BEMCheckBox!
+    
+    
+    @IBOutlet weak var judo: BEMCheckBox!
+    
+    @IBOutlet weak var muayThai: BEMCheckBox!
+    
+    
+    //MARK: Actions
+    @IBAction func completeButtonAction(_ sender: Any) {
+        submitPressed()
+    }
+
+    @IBAction func showInterests(_ sender: Any) {
+        print(options.joined(separator: " , "))
+        user?.interests = options.joined(separator: ", ")
+        print(user?.interests)
+    }
+    
+    //MARK: Overrides
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    override func viewDidLoad() {
+        
+        sentPic.image = user?.image
+        print(user?.name)
+        print(user?.email)
+        print(user?.pass)
+        print(user?.zipCode)
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        
+        super.viewDidLoad()
+        self.tabBarController?.tabBar.isHidden = true
+        self.navigationItem.title = "SIGNUP"
+        
+        //        completeButton.layer.borderWidth = 1
+        //        completeButton.layer.borderColor = UIColor.white.cgColor
+        //
+        boxing.delegate = self
+        kickboxing.delegate = self
+        jiujitsu.delegate = self
+        karate.delegate = self
+        judo.delegate = self
+        muayThai.delegate = self
+        bioTextView.delegate = self
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
     
     func getLocationFromPostalCode(postalCode : String, completion:@escaping (String?) -> Void) {
         let geocoder = CLGeocoder()
@@ -37,8 +99,8 @@ class PreferencesViewController: UIViewController, BEMCheckBoxDelegate, UITextVi
                 
                 if placemark.postalCode == postalCode {
                     // you can get all the details of place here
-                    print("\(placemark.locality)")
-                    print("\(placemark.country)")
+                    print("\(String(describing: placemark.locality))")
+                    print("\(String(describing: placemark.country))")
                     completion(placemark.locality)
                     return
                 }
@@ -51,23 +113,15 @@ class PreferencesViewController: UIViewController, BEMCheckBoxDelegate, UITextVi
             
         }
     }
-    
-
-
-    
-    @IBOutlet weak var bioTextView: UITextView!
-    
-    
-    var authService = AuthService()
-    
 
     
     func submitPressed(){
         guard let user = self.user else { return }
         
         var pictureD: Data? = nil
+        
         if let imageView = self.sentPic.image{
-            pictureD = UIImageJPEGRepresentation(imageView, 0.2)
+            pictureD = UIImageJPEGRepresentation(imageView, 0.3)
         }
         let nameText = user.name!
         let interests = options.joined(separator: ", ")
@@ -86,88 +140,21 @@ class PreferencesViewController: UIViewController, BEMCheckBoxDelegate, UITextVi
              SVProgressHUD.show()
             getLocationFromPostalCode(postalCode: user.zipCode!) { (location) in
                 self.view.endEditing(true)
-                self.authService.signUP(firstLastName: nameText, email: finalEmail, location: location ?? "Unknown", biography: biography, password: self.password, interests: interests, pictureData: pictureD! as NSData)
+                self.authService.signUP(firstLastName: nameText, email: finalEmail, location: location ?? "Unknown", biography: biography, password: user.pass!, interests: interests, pictureData: pictureD! as NSData)
                
             }
-            
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "NewTabBarViewController")
+
         }
          SVProgressHUD.dismiss()
    
     }
-        
 
-    @IBAction func completeButtonAction(_ sender: Any) {
-       
-        submitPressed()
-    
-    }
-    @IBOutlet weak var completeButton: UIButton!
-
-    @IBOutlet weak var boxing: BEMCheckBox!
-    
-    @IBOutlet weak var kickboxing: BEMCheckBox!
-    
-    
-    @IBOutlet weak var jiujitsu: BEMCheckBox!
-    
-    
-    @IBOutlet weak var karate: BEMCheckBox!
-    
-    
-    @IBOutlet weak var judo: BEMCheckBox!
-    
-    @IBOutlet weak var muayThai: BEMCheckBox!
-    
-    
- 
-  
-    @IBAction func showInterests(_ sender: Any) {
-        print(options.joined(separator: " , "))
-        user?.interests = options.joined(separator: ", ")
-        print(user?.interests)
-    }
-    
-  
-   
-    
-    override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(false, animated: true)
-    }
-    override func viewDidLoad() {
-       
-        sentPic.image = user?.image
-        print(user?.name)
-        print(user?.email)
-        print(user?.pass)
-        print(user?.zipCode)
-
-      navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-    
-        super.viewDidLoad()
-        self.tabBarController?.tabBar.isHidden = true
-        self.navigationItem.title = "SIGNUP"
-
-//        completeButton.layer.borderWidth = 1
-//        completeButton.layer.borderColor = UIColor.white.cgColor
-//       
-        boxing.delegate = self
-        kickboxing.delegate = self
-        jiujitsu.delegate = self
-        karate.delegate = self
-        judo.delegate = self
-        muayThai.delegate = self
-     bioTextView.delegate = self
-    }
 
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         let newText = (bioTextView.text as NSString).replacingCharacters(in: range, with: text)
         let numberOfChars = newText.characters.count
         return numberOfChars < 100
     }
-    
-    var options = [String]()
     
     func didTap(_ checkBox: BEMCheckBox) {
         switch checkBox {
@@ -216,12 +203,6 @@ class PreferencesViewController: UIViewController, BEMCheckBoxDelegate, UITextVi
             
         }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
 
 
 }

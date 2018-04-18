@@ -8,6 +8,17 @@
 
 import Foundation
 
+
+
+func instantiateMainTabBarViewController() -> NewTabBarViewController{
+    
+    if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: NewTabBarViewController.identifier) as? NewTabBarViewController{
+        return viewController
+        
+    }
+    return UIViewController() as! NewTabBarViewController
+}
+
 func instantiateSignUpViewController() -> SignUpViewController{
     
     if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: SignUpViewController.identifier) as? SignUpViewController{

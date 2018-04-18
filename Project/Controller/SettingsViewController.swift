@@ -307,7 +307,13 @@ showAlert(message: "Email updated.")
                     do {
                         try? Auth.auth().signOut()
                         
-                        self.performSegue(withIdentifier: "login", sender: self)
+                        let loginCoordinator: LoginCoordinator = {
+                            return LoginCoordinator(rootViewController: self)
+                        }()
+                        
+                        loginCoordinator.start()
+                        
+//                        self.performSegue(withIdentifier: "login", sender: self)
                         
                     }
                 }

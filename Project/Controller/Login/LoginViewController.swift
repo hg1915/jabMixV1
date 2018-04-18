@@ -8,9 +8,15 @@ import MessageUI
 import Foundation
 import TwitterKit
 
+protocol LoginViewControllerDelegate: class{
+    
+}
+
 class LoginViewController: UIViewController, UIAlertViewDelegate, MFMailComposeViewControllerDelegate {
+    
     //MARK: Variables
     var authService = AuthService()
+    weak var delegate: LoginViewControllerDelegate?
     
     //MARK: Outlets
     @IBOutlet weak var emailText: DesignableUITextField!{
@@ -75,10 +81,8 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, MFMailComposeV
     
     func enter(){
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "NewTabBarViewController") as! UIViewController
         // Alternative way to present the new view controller
-        self.navigationController?.present(vc, animated: true, completion: nil)
+        self.navigationController?.present(instantiateMainTabBarViewController(), animated: true, completion: nil)
         
     }
     
@@ -104,7 +108,8 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, MFMailComposeV
                         print("\(user.displayName!) has been signed in")
                         
                         SVProgressHUD.dismiss()
-                        self.performSegue(withIdentifier: "signInHome", sender: nil)
+                        
+                        self.present(instantiateMainTabBarViewController(), animated: true, completion: nil)
                         
                     }else{
                         SVProgressHUD.dismiss()
@@ -163,7 +168,7 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, MFMailComposeV
         super.viewDidLoad()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
-        self.navigationItem.title = "LOGIN"
+        self.navigationItem.title = "Login"
         self.tabBarController?.tabBar.isHidden = true
     }
 

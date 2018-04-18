@@ -7,6 +7,7 @@ import SVProgressHUD
 
 protocol SignUpViewControllerDelegate: class{
     func signUpButtonPressed(_ viewcontroller: UIViewController, user: UserPass)
+    func loginButtonPressed(_ viewcontroller: UIViewController)
     
 }
 
@@ -22,7 +23,7 @@ struct UserPass{
 class SignUpViewController: UIViewController, UITextFieldDelegate {
     
     //MARK: Delegates
-    weak var delegate: SignUpViewControllerDelegate?
+    var delegate: SignUpViewControllerDelegate?
     
     //MARK: Outlets
     @IBOutlet weak var nameText: DesignableUITextField!
@@ -43,6 +44,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
     //MARK: Actions
     @IBAction func signUpButton(_ sender: Any) {
         signUp()
+    }
+    @IBAction func loginButtonPressed(_ sender: UIButton) {
+        delegate?.loginButtonPressed(self)
     }
     
     //MARK: Overrides
@@ -151,6 +155,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate {
         user.email = emailText.text!
         user.pass = passwordText.text!
         user.image = userImageView.image!
+        return user
     }
     
     
