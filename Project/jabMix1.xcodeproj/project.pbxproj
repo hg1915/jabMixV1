@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6982B94720867ABC005F6AF3 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6982B94620867ABC005F6AF3 /* LoginCoordinator.swift */; };
+		6982B94920867AC8005F6AF3 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6982B94820867AC8005F6AF3 /* LoginViewModel.swift */; };
+		6982B94D20867B7C005F6AF3 /* FacebookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6982B94C20867B7C005F6AF3 /* FacebookService.swift */; };
+		6982B95020867BC1005F6AF3 /* TwitterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6982B94F20867BC1005F6AF3 /* TwitterService.swift */; };
+		6982B9522086E774005F6AF3 /* InstantiateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6982B9512086E774005F6AF3 /* InstantiateViewController.swift */; };
+		6982B9552086FB59005F6AF3 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6982B9542086FB59005F6AF3 /* Helpers.swift */; };
+		6982B95820870488005F6AF3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6982B95720870488005F6AF3 /* Extensions.swift */; };
+		6982B95A20870C46005F6AF3 /* RealmSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6982B95920870C46005F6AF3 /* RealmSave.swift */; };
 		7003E810203181DD0068F87E /* Classes in Resources */ = {isa = PBXBuildFile; fileRef = 7003E80F203181DD0068F87E /* Classes */; };
 		7003E81C203182730068F87E /* BEMCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 7003E814203182720068F87E /* BEMCheckBox.m */; };
 		7003E81D203182730068F87E /* BEMAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7003E815203182720068F87E /* BEMAnimationManager.m */; };
@@ -23,7 +31,7 @@
 		B0706323201A8AFE0026AACB /* JabTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0706321201A8AFE0026AACB /* JabTableViewCell.swift */; };
 		B0706324201A8AFE0026AACB /* JabTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B0706322201A8AFE0026AACB /* JabTableViewCell.xib */; };
 		C71095A81FE2048800CBCA09 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71095A71FE2048800CBCA09 /* ForgotPasswordViewController.swift */; };
-		C71095C71FE265F600CBCA09 /* SignUpSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71095C61FE265F600CBCA09 /* SignUpSecondViewController.swift */; };
+		C71095C71FE265F600CBCA09 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71095C61FE265F600CBCA09 /* PreferencesViewController.swift */; };
 		C73EB33E20057E830080167D /* IQNSArray+Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73EB32820057E830080167D /* IQNSArray+Sort.swift */; };
 		C73EB33F20057E830080167D /* IQUIScrollView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73EB32920057E830080167D /* IQUIScrollView+Additions.swift */; };
 		C73EB34020057E830080167D /* IQUITextFieldView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C73EB32A20057E830080167D /* IQUITextFieldView+Additions.swift */; };
@@ -45,7 +53,7 @@
 		C76333361FEB5BFA002DF78C /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C76333351FEB5BFA002DF78C /* HomeTableViewController.swift */; };
 		C773B2872002F036005D8C11 /* UpdateInterestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C773B2862002F036005D8C11 /* UpdateInterestsViewController.swift */; };
 		C776EEB51FE1036200B90D6C /* ButtonCust.swift in Sources */ = {isa = PBXBuildFile; fileRef = C776EEB41FE1036200B90D6C /* ButtonCust.swift */; };
-		C776EEB91FE2017500B90D6C /* LoginWithEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C776EEB81FE2017500B90D6C /* LoginWithEmailViewController.swift */; };
+		C776EEB91FE2017500B90D6C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C776EEB81FE2017500B90D6C /* LoginViewController.swift */; };
 		C7832E281FEB6E7900781E1E /* UsersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7832E261FEB6E7900781E1E /* UsersTableViewCell.swift */; };
 		C7832E291FEB6E7900781E1E /* UsersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C7832E271FEB6E7900781E1E /* UsersTableViewCell.xib */; };
 		C78CEB8D1F96E39A000536BB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C78CEB8C1F96E39A000536BB /* GoogleService-Info.plist */; };
@@ -66,8 +74,8 @@
 		C7C9B0C1200303740056394F /* SendRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C9B0C0200303740056394F /* SendRequestViewController.swift */; };
 		C7CBBC572031016E00E085C0 /* TermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7CBBC562031016E00E085C0 /* TermsViewController.swift */; };
 		C7E14FE1200855EA00133BB7 /* JabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E14FE0200855EA00133BB7 /* JabsViewController.swift */; };
-		C7F4CA891FA6DFC500450690 /* Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F4CA881FA6DFC500450690 /* Extention.swift */; };
-		C7F5DE301F8A026600A49575 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F5DE2F1F8A026600A49575 /* LoginViewController.swift */; };
+		C7F4CA891FA6DFC500450690 /* Extensions+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F4CA881FA6DFC500450690 /* Extensions+UIImageView.swift */; };
+		C7F5DE301F8A026600A49575 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F5DE2F1F8A026600A49575 /* SignUpViewController.swift */; };
 		C7F668A21FF4BCDA00E590F1 /* ProfileTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F668A11FF4BCDA00E590F1 /* ProfileTabViewController.swift */; };
 		C7F668A41FF4BDAA00E590F1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F668A31FF4BDAA00E590F1 /* SettingsViewController.swift */; };
 		DD99C3718BA205AE81A70CC9 /* Pods_jabMix1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A4D51172144BC22D91251E6 /* Pods_jabMix1.framework */; };
@@ -76,6 +84,14 @@
 /* Begin PBXFileReference section */
 		4A4D51172144BC22D91251E6 /* Pods_jabMix1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_jabMix1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		547EBB5A6D86F5D3CA81A778 /* Pods-jabMix1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-jabMix1.release.xcconfig"; path = "Pods/Target Support Files/Pods-jabMix1/Pods-jabMix1.release.xcconfig"; sourceTree = "<group>"; };
+		6982B94620867ABC005F6AF3 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
+		6982B94820867AC8005F6AF3 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		6982B94C20867B7C005F6AF3 /* FacebookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookService.swift; sourceTree = "<group>"; };
+		6982B94F20867BC1005F6AF3 /* TwitterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterService.swift; sourceTree = "<group>"; };
+		6982B9512086E774005F6AF3 /* InstantiateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstantiateViewController.swift; sourceTree = "<group>"; };
+		6982B9542086FB59005F6AF3 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		6982B95720870488005F6AF3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		6982B95920870C46005F6AF3 /* RealmSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSave.swift; sourceTree = "<group>"; };
 		7003E80F203181DD0068F87E /* Classes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Classes; sourceTree = SOURCE_ROOT; };
 		7003E814203182720068F87E /* BEMCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMCheckBox.m; path = Classes/BEMCheckBox.m; sourceTree = SOURCE_ROOT; };
 		7003E815203182720068F87E /* BEMAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMAnimationManager.m; path = Classes/BEMAnimationManager.m; sourceTree = SOURCE_ROOT; };
@@ -98,7 +114,7 @@
 		B0706321201A8AFE0026AACB /* JabTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JabTableViewCell.swift; sourceTree = "<group>"; };
 		B0706322201A8AFE0026AACB /* JabTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JabTableViewCell.xib; sourceTree = "<group>"; };
 		C71095A71FE2048800CBCA09 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
-		C71095C61FE265F600CBCA09 /* SignUpSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSecondViewController.swift; sourceTree = "<group>"; };
+		C71095C61FE265F600CBCA09 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		C73EB32820057E830080167D /* IQNSArray+Sort.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQNSArray+Sort.swift"; sourceTree = "<group>"; };
 		C73EB32920057E830080167D /* IQUIScrollView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUIScrollView+Additions.swift"; sourceTree = "<group>"; };
 		C73EB32A20057E830080167D /* IQUITextFieldView+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "IQUITextFieldView+Additions.swift"; sourceTree = "<group>"; };
@@ -121,7 +137,7 @@
 		C76333351FEB5BFA002DF78C /* HomeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		C773B2862002F036005D8C11 /* UpdateInterestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateInterestsViewController.swift; sourceTree = "<group>"; };
 		C776EEB41FE1036200B90D6C /* ButtonCust.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ButtonCust.swift; path = View/ButtonCust.swift; sourceTree = SOURCE_ROOT; };
-		C776EEB81FE2017500B90D6C /* LoginWithEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithEmailViewController.swift; sourceTree = "<group>"; };
+		C776EEB81FE2017500B90D6C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C7832E261FEB6E7900781E1E /* UsersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewCell.swift; sourceTree = "<group>"; };
 		C7832E271FEB6E7900781E1E /* UsersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UsersTableViewCell.xib; sourceTree = "<group>"; };
 		C78CEB8C1F96E39A000536BB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -144,8 +160,8 @@
 		C7C9B0C0200303740056394F /* SendRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendRequestViewController.swift; sourceTree = "<group>"; };
 		C7CBBC562031016E00E085C0 /* TermsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsViewController.swift; sourceTree = "<group>"; };
 		C7E14FE0200855EA00133BB7 /* JabsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JabsViewController.swift; sourceTree = "<group>"; };
-		C7F4CA881FA6DFC500450690 /* Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extention.swift; sourceTree = "<group>"; };
-		C7F5DE2F1F8A026600A49575 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C7F4CA881FA6DFC500450690 /* Extensions+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIImageView.swift"; sourceTree = "<group>"; };
+		C7F5DE2F1F8A026600A49575 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpViewController.swift; path = "../New Group/SignUpViewController.swift"; sourceTree = "<group>"; };
 		C7F668A11FF4BCDA00E590F1 /* ProfileTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabViewController.swift; sourceTree = "<group>"; };
 		C7F668A31FF4BDAA00E590F1 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,6 +187,56 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		6982B94A20867ACE005F6AF3 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				6982B94820867AC8005F6AF3 /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		6982B94B20867ADA005F6AF3 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				6982B94620867ABC005F6AF3 /* LoginCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		6982B94E20867B8A005F6AF3 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				C7F5DE2F1F8A026600A49575 /* SignUpViewController.swift */,
+				C71095C61FE265F600CBCA09 /* PreferencesViewController.swift */,
+				C71095A71FE2048800CBCA09 /* ForgotPasswordViewController.swift */,
+				C776EEB81FE2017500B90D6C /* LoginViewController.swift */,
+				6982B94C20867B7C005F6AF3 /* FacebookService.swift */,
+				6982B94F20867BC1005F6AF3 /* TwitterService.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		6982B9532086E77A005F6AF3 /* Instantiate */ = {
+			isa = PBXGroup;
+			children = (
+				6982B9512086E774005F6AF3 /* InstantiateViewController.swift */,
+			);
+			path = Instantiate;
+			sourceTree = "<group>";
+		};
+		6982B9562086FB61005F6AF3 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				6982B95720870488005F6AF3 /* Extensions.swift */,
+				C7F4CA881FA6DFC500450690 /* Extensions+UIImageView.swift */,
+				6982B9542086FB59005F6AF3 /* Helpers.swift */,
+				7003E813203182230068F87E /* Classes */,
+				C73EB32620057E830080167D /* IQKeyboardManagerSwift */,
+				6982B95920870C46005F6AF3 /* RealmSave.swift */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
 		7003E813203182230068F87E /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,16 +250,21 @@
 				7003E818203182730068F87E /* BEMPathManager.m */,
 			);
 			name = Classes;
-			path = "New Group";
+			path = "../New Group";
 			sourceTree = "<group>";
 		};
-		C72BBD731F9BDB39008F3F6D /* tableViewCell */ = {
+		C72BBD731F9BDB39008F3F6D /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				C7832E261FEB6E7900781E1E /* UsersTableViewCell.swift */,
 				C7832E271FEB6E7900781E1E /* UsersTableViewCell.xib */,
+				B0706321201A8AFE0026AACB /* JabTableViewCell.swift */,
+				B00F28AD201538D300567AB3 /* ChatTableViewCell.swift */,
+				B00F28AE201538D300567AB3 /* ChatTableViewCell.xib */,
+				B0706322201A8AFE0026AACB /* JabTableViewCell.xib */,
 			);
-			path = tableViewCell;
+			name = Cells;
+			path = View/Cells;
 			sourceTree = "<group>";
 		};
 		C73EB32620057E830080167D /* IQKeyboardManagerSwift */ = {
@@ -275,12 +346,14 @@
 		C7BF08191F89FE8700880BA0 = {
 			isa = PBXGroup;
 			children = (
-				7003E813203182230068F87E /* Classes */,
-				C7AD3899201EC5A300DB4452 /* lucida-grande */,
-				C73EB32620057E830080167D /* IQKeyboardManagerSwift */,
+				6982B94B20867ADA005F6AF3 /* Coordinators */,
 				C7F5DE3C1F8DF61400A49575 /* Model */,
-				C7F5DE2E1F8A024C00A49575 /* Controller */,
+				C72BBD731F9BDB39008F3F6D /* Cells */,
+				6982B94A20867ACE005F6AF3 /* ViewModel */,
 				C7BF08381F89FFE800880BA0 /* View */,
+				C7F5DE2E1F8A024C00A49575 /* Controller */,
+				6982B9562086FB61005F6AF3 /* Supporting */,
+				C7AD3899201EC5A300DB4452 /* lucida-grande */,
 				C7BF08241F89FE8800880BA0 /* jabMix1 */,
 				C7BF08231F89FE8800880BA0 /* Products */,
 				01C0417269908443FE1FEE27 /* Pods */,
@@ -314,7 +387,6 @@
 			children = (
 				C776EEB41FE1036200B90D6C /* ButtonCust.swift */,
 				C7C6DFBD201AD4EC00A2D1BE /* DesignableUITextField.swift */,
-				C72BBD731F9BDB39008F3F6D /* tableViewCell */,
 				C7BF08291F89FE8800880BA0 /* Main.storyboard */,
 				C7CBBC562031016E00E085C0 /* TermsViewController.swift */,
 			);
@@ -324,26 +396,19 @@
 		C7F5DE2E1F8A024C00A49575 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				C7F5DE2F1F8A026600A49575 /* LoginViewController.swift */,
-				C776EEB81FE2017500B90D6C /* LoginWithEmailViewController.swift */,
-				C71095A71FE2048800CBCA09 /* ForgotPasswordViewController.swift */,
-				C71095C61FE265F600CBCA09 /* SignUpSecondViewController.swift */,
+				6982B9532086E77A005F6AF3 /* Instantiate */,
+				6982B94E20867B8A005F6AF3 /* Login */,
 				C76333311FEB4A27002DF78C /* NewTabBarViewController.swift */,
 				C76333351FEB5BFA002DF78C /* HomeTableViewController.swift */,
 				C7B3A7DA1FF4A678003A5A55 /* ProfilePageViewController.swift */,
 				C7C9B0C0200303740056394F /* SendRequestViewController.swift */,
 				C7E14FE0200855EA00133BB7 /* JabsViewController.swift */,
-				B0706321201A8AFE0026AACB /* JabTableViewCell.swift */,
-				B0706322201A8AFE0026AACB /* JabTableViewCell.xib */,
 				B00504AC1FB506A00000664B /* RequestDetailViewController.swift */,
 				B00F28AB2015221B00567AB3 /* ChatsTableViewController.swift */,
-				B00F28AD201538D300567AB3 /* ChatTableViewCell.swift */,
-				B00F28AE201538D300567AB3 /* ChatTableViewCell.xib */,
 				C7BBEB4B201B9F4F0085AFCE /* ChatViewController.swift */,
 				C7F668A11FF4BCDA00E590F1 /* ProfileTabViewController.swift */,
 				C7F668A31FF4BDAA00E590F1 /* SettingsViewController.swift */,
 				C773B2862002F036005D8C11 /* UpdateInterestsViewController.swift */,
-				C7F4CA881FA6DFC500450690 /* Extention.swift */,
 				B00F28A92013C60700567AB3 /* InitialViewController.swift */,
 				C7BBEB4D201B9FA90085AFCE /* UIImage+Gif.swift */,
 				C79D319C20217C3600D68E84 /* newBG.png */,
@@ -486,6 +551,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-jabMix1/Pods-jabMix1-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookShare/FacebookShare.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GooglePlacesSearchController/GooglePlacesSearchController.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
@@ -494,14 +566,25 @@
 				"${BUILT_PRODUCTS_DIR}/KMPlaceholderTextView/KMPlaceholderTextView.framework",
 				"${BUILT_PRODUCTS_DIR}/MessageKit/MessageKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SKPhotoBrowser/SKPhotoBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
 				"${BUILT_PRODUCTS_DIR}/UIColor_Hex_Swift/UIColor_Hex_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookShare.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GooglePlacesSearchController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
@@ -510,8 +593,12 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMPlaceholderTextView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessageKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SKPhotoBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIColor_Hex_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -531,12 +618,16 @@
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GooglePlacePicker/Frameworks/GooglePlacePicker.framework/Resources/GooglePlacePicker.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterShareExtensionUIResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlacePicker.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterShareExtensionUIResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -551,7 +642,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B00F28AA2013C60700567AB3 /* InitialViewController.swift in Sources */,
-				C7F5DE301F8A026600A49575 /* LoginViewController.swift in Sources */,
+				C7F5DE301F8A026600A49575 /* SignUpViewController.swift in Sources */,
+				6982B95A20870C46005F6AF3 /* RealmSave.swift in Sources */,
 				C73EB34820057E830080167D /* IQTextView.swift in Sources */,
 				C73EB34A20057E830080167D /* IQPreviousNextView.swift in Sources */,
 				C7BF08261F89FE8800880BA0 /* AppDelegate.swift in Sources */,
@@ -567,7 +659,8 @@
 				B00F28AC2015221B00567AB3 /* ChatsTableViewController.swift in Sources */,
 				C7832E281FEB6E7900781E1E /* UsersTableViewCell.swift in Sources */,
 				C73EB34D20057E830080167D /* IQUIView+IQKeyboardToolbar.swift in Sources */,
-				C71095C71FE265F600CBCA09 /* SignUpSecondViewController.swift in Sources */,
+				C71095C71FE265F600CBCA09 /* PreferencesViewController.swift in Sources */,
+				6982B95020867BC1005F6AF3 /* TwitterService.swift in Sources */,
 				C7C6DFBE201AD4EC00A2D1BE /* DesignableUITextField.swift in Sources */,
 				C776EEB51FE1036200B90D6C /* ButtonCust.swift in Sources */,
 				C773B2872002F036005D8C11 /* UpdateInterestsViewController.swift in Sources */,
@@ -576,29 +669,35 @@
 				B058369F1FB42D6C00484D91 /* Request.swift in Sources */,
 				C7BBEB4E201B9FAA0085AFCE /* UIImage+Gif.swift in Sources */,
 				B00F28AF201538D300567AB3 /* ChatTableViewCell.swift in Sources */,
+				6982B95820870488005F6AF3 /* Extensions.swift in Sources */,
 				7003E81C203182730068F87E /* BEMCheckBox.m in Sources */,
 				C7CBBC572031016E00E085C0 /* TermsViewController.swift in Sources */,
 				C7F668A21FF4BCDA00E590F1 /* ProfileTabViewController.swift in Sources */,
-				C776EEB91FE2017500B90D6C /* LoginWithEmailViewController.swift in Sources */,
-				C7F4CA891FA6DFC500450690 /* Extention.swift in Sources */,
+				C776EEB91FE2017500B90D6C /* LoginViewController.swift in Sources */,
+				C7F4CA891FA6DFC500450690 /* Extensions+UIImageView.swift in Sources */,
 				C7B3A7DB1FF4A678003A5A55 /* ProfilePageViewController.swift in Sources */,
 				C7E14FE1200855EA00133BB7 /* JabsViewController.swift in Sources */,
 				B00504AD1FB506A00000664B /* RequestDetailViewController.swift in Sources */,
 				C7C9B0C1200303740056394F /* SendRequestViewController.swift in Sources */,
 				C73EB34320057E830080167D /* IQUIWindow+Hierarchy.swift in Sources */,
+				6982B9522086E774005F6AF3 /* InstantiateViewController.swift in Sources */,
 				C7F668A41FF4BDAA00E590F1 /* SettingsViewController.swift in Sources */,
 				C73EB34720057E830080167D /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				C73EB33E20057E830080167D /* IQNSArray+Sort.swift in Sources */,
 				C76333321FEB4A27002DF78C /* NewTabBarViewController.swift in Sources */,
 				C73EB34920057E830080167D /* IQBarButtonItem.swift in Sources */,
 				C73EB34C20057E830080167D /* IQToolbar.swift in Sources */,
+				6982B94720867ABC005F6AF3 /* LoginCoordinator.swift in Sources */,
 				C795884C1F96CE80006FD7AA /* AuthService.swift in Sources */,
+				6982B94920867AC8005F6AF3 /* LoginViewModel.swift in Sources */,
 				7003E81D203182730068F87E /* BEMAnimationManager.m in Sources */,
+				6982B9552086FB59005F6AF3 /* Helpers.swift in Sources */,
 				7003E81F203182730068F87E /* BEMCheckBoxGroup.m in Sources */,
 				C73EB33F20057E830080167D /* IQUIScrollView+Additions.swift in Sources */,
 				C73EB34020057E830080167D /* IQUITextFieldView+Additions.swift in Sources */,
 				C7BBEB4C201B9F500085AFCE /* ChatViewController.swift in Sources */,
 				C73EB34B20057E830080167D /* IQTitleBarButtonItem.swift in Sources */,
+				6982B94D20867B7C005F6AF3 /* FacebookService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,11 +840,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = jabMix1/jabMix1.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X68MHQHN3P;
+				DEVELOPMENT_TEAM = 5EB567WJ73;
 				INFOPLIST_FILE = jabMix1/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.g.jabMix1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.g.jabMix1.Jay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = CheckBoxHeader.h;
 				SWIFT_VERSION = 4.0;
@@ -761,11 +860,11 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = jabMix1/jabMix1.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X68MHQHN3P;
+				DEVELOPMENT_TEAM = 5EB567WJ73;
 				INFOPLIST_FILE = jabMix1/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.g.jabMix1;
+				PRODUCT_BUNDLE_IDENTIFIER = com.g.jabMix1.Jay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = CheckBoxHeader.h;
 				SWIFT_VERSION = 4.0;

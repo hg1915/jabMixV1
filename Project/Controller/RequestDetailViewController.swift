@@ -124,7 +124,10 @@ class RequestDetailViewController:UITableViewController {
         senderUsernameLabel.text = user.firstLastName
         senderImageView.layer.cornerRadius = senderImageView.frame.height / 2
         senderImageView.clipsToBounds = true
-        Storage.storage().reference(forURL: user.photoURL).getData(maxSize: 10 * 1024 * 1024) { imgData, error in
+        guard let userPhoto = user.photoURL else {
+            print("There was no user photo to pass")
+            return }
+        Storage.storage().reference(forURL: userPhoto).getData(maxSize: 10 * 1024 * 1024) { imgData, error in
             
             if error == nil {
                 DispatchQueue.main.async {
@@ -141,8 +144,11 @@ class RequestDetailViewController:UITableViewController {
         recipientUsernameLabel.text = user.firstLastName
         recipientImageView.layer.cornerRadius = recipientImageView.frame.height / 2
         recipientImageView.clipsToBounds = true
+        guard let userPhoto = user.photoURL else {
+            print("There was no user photo to pass")
+            return }
         
-        Storage.storage().reference(forURL: user.photoURL).getData(maxSize: 10 * 1024 * 1024) { imgData, error in
+        Storage.storage().reference(forURL: userPhoto).getData(maxSize: 10 * 1024 * 1024) { imgData, error in
             
             if error == nil {
                 DispatchQueue.main.async {

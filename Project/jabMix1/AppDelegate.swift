@@ -4,13 +4,17 @@ import Firebase
 import FirebaseAuth
 import UserNotifications
 import GooglePlaces
+import TwitterKit
+import RealmSwift
 
 
 var currentUser:Users?
+let realm = try! Realm()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
+    
     var window: UIWindow?
     override init(){
         super.init()
@@ -19,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         
+        //MARK: Twitter Login setup
+        TWTRTwitter.sharedInstance().start(withConsumerKey:"Yhz8vaONM0tuGJzMK63pV1De2", consumerSecret:"Jml86g4iHigvhOPBjvMgfc7JUB0HNj4MMfYFG9klowkpVFz72x")
+
         
 //        let BarButtonItemAppearance = UIBarButtonItem.appearance()
 //        BarButtonItemAppearance.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: UIColor.clear], for: .normal)

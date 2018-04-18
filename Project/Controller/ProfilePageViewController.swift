@@ -65,7 +65,7 @@ class ProfilePageViewController: UIViewController, UIAlertViewDelegate, MFMailCo
         bio.text = user.biography
         location.text = user.location
        //usernameLabel.text = "@\(user.username)"
-        profileImage.loadImageUsingCacheWithUrlString(urlString: user.photoURL)
+        profileImage.loadImageUsingCacheWithUrlString(urlString: user.photoURL!)
     }
     
     func setUpButtons(){
