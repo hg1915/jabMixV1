@@ -19,8 +19,8 @@ class HomeTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-
+//        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        buttonSetup()
       //  self.partnersTableView.contentInset = UIEdgeInsetsMake(44,0,0,0);
         
       // self.automaticallyAdjustsScrollViewInsets = false
@@ -45,6 +45,16 @@ class HomeTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         fetchUsers()
+    }
+    
+    
+    func buttonSetup(){
+        let menuButton = UIBarButtonItem(title: "Map", style: .plain, target: self, action: #selector(self.mapView))
+        self.navigationItem.leftBarButtonItem = menuButton
+    }
+    
+    @objc func mapView(){
+        self.navigationController?.pushViewController(instantiateMapViewController(), animated: true)
     }
     
     

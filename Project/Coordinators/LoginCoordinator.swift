@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
+import SVProgressHUD
+import MessageUI
+import TwitterKit
 
 protocol FBTwitterCredentials: class{
     var fbToken: String? { get }
@@ -72,6 +76,7 @@ open class LoginCoordinator: FBTwitterCredentials {
         if _loginViewController == nil {
             let viewController = instantiateLoginViewController()
             viewController.delegate = self
+            viewController.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
             _loginViewController = viewController
         }
         return _loginViewController!
@@ -149,9 +154,51 @@ open class LoginCoordinator: FBTwitterCredentials {
         
     }
     
-    open func fbSignUp(token: FacebookProfile){
+    open func fbLogIn(_ viewController: UIViewController, token: FacebookProfile){
+        let credential = FacebookAuthProvider.credential(withAccessToken: token.facebookToken)
+        
+        Auth.auth().signIn(with: credential) { (user, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            } else
+                if let user = user {
+                    print("\(user.displayName!) has been signed in with Facebook!")
+                    
+                    SVProgressHUD.dismiss()
+                    
+                    self.finish()
+                    
+                    viewController.present(instantiateMainTabBarViewController(), animated: true, completion: nil)
+                    
+                }
+            
+            
+        }
+    }
+    
+    open func twitterLogIn(_ viewController: UIViewController, token: String, secret: String){
+        let credential = TwitterAuthProvider.credential(withToken: token, secret: secret)
+        Auth.auth().signIn(with: credential) { (user, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            } else
+                if let user = user {
+                    print("\(user.displayName!) has been signed in with Twitter!")
+                    
+                    SVProgressHUD.dismiss()
+                    
+                    self.finish()
+                    
+                    viewController.present(instantiateMainTabBarViewController(), animated: true, completion: nil)
+                    
+            }
+         
+        }
         
     }
+    
     
     open func recoverPassword(email: String) {
         print("Implement this method in your subclass to handle password recovery.")
@@ -159,16 +206,17 @@ open class LoginCoordinator: FBTwitterCredentials {
     
     //MARK: Navigation
     func toPreferences(_ viewController: UIViewController, user: UserPass){
-        visibleViewController()?.navigationController?.popViewController(animated: true)
-        _preferencesViewController?.user = user
+        navigationController.navigationController?.popViewController(animated: true)
+        
+        preferencesViewController.user = user
         guard let prefVC = _preferencesViewController else {
             fatalError("Trying to present a viewcontroller that is nil(_preferencesViewController)")}
         visibleViewController()?.navigationController?.pushViewController(prefVC, animated: true)
     }
     
     func toLogin(_ viewController: UIViewController){
-        visibleViewController()?.navigationController?.popViewController(animated: true)
-        visibleViewController()?.navigationController?.pushViewController(loginViewController, animated: true)
+        navigationController.navigationController?.popViewController(animated: true)
+        navigationController.pushViewController(loginViewController, animated: true)
     }
     
     
@@ -191,6 +239,110 @@ extension LoginCoordinator: PreferencesViewControllerDelegate{
 }
 
 extension LoginCoordinator: LoginViewControllerDelegate{
+    
+    func loginEmailPressed(_ viewController: UIViewController, email: String, pass: String) {
+        
+        guard let viewController = viewController as? LoginViewController else { return }
+        
+        if email.isEmpty || pass.isEmpty {
+            
+            let alertController = UIAlertController(title: "Error!", message: "Please fill in all the fields.", preferredStyle: .alert)
+            alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
+            viewController.present(alertController, animated: true, completion: nil)
+            
+        }else {
+            SVProgressHUD.show()
+            
+            Auth.auth().signIn(withEmail: email, password: pass) { (user, error) in
+                
+                if error == nil {
+                    if let user = user {
+                        print("\(user.displayName!) has been signed in")
+                        
+                        SVProgressHUD.dismiss()
+                        
+                        viewController.present(instantiateMainTabBarViewController(), animated: true, completion: nil)
+                        
+                    }else{
+                        SVProgressHUD.dismiss()
+                        print("error")
+                        
+                        
+                        
+                        print(error?.localizedDescription as Any)
+                    }
+                }
+                else {
+                    SVProgressHUD.dismiss()
+                    let alert = UIAlertController(title: "Low Blow!", message: "Incorrect Credentials", preferredStyle: .alert)
+                    
+                    
+                    let action1 = UIAlertAction(title: "Contact Support", style: .default, handler: { (action) -> Void in
+                        
+                        let mailComposeViewController = viewController.configuredMailComposeViewController()
+                        if MFMailComposeViewController.canSendMail() {
+                            viewController.present(mailComposeViewController, animated: true, completion: nil)
+                        } else {
+                            viewController.showSendMailErrorAlert()
+                        }
+                        
+                        print("ACTION 1 selected!")
+                    })
+                    
+                    
+                    
+                    // Cancel button
+                    let cancel = UIAlertAction(title: "Try Again", style: .default , handler: { (action) -> Void in })
+                    
+                    
+                    // Add action buttons and present the Alert
+                    alert.addAction(action1)
+                    alert.addAction(cancel)
+                    viewController.present(alert, animated: true, completion: nil)
+                    
+                    
+                }
+            }
+        }
+    }
+    
+    func facebookLoginPressed(_ viewController: UIViewController) {
+        facebookService.login(from: viewController) { (result) in
+            switch result {
+            case .success(let profile):
+                self.fbLogIn(viewController, token: profile)
+            case .error(let err):
+                viewController.createAlert(title: "Error", message: err.localizedDescription)
+            case .missingPermissions:
+                print("Missing permissions!")
+            case .unknownError:
+                viewController.createAlert(title: "Error", message: "Could not log you in!")
+            case .cancelled:
+                print("Cancelled")
+            }
+        }
+    }
+    
+    func twitterLoginPressed(_ viewContoller: UIViewController) {
+        
+        TWTRTwitter.sharedInstance().logIn(completion: { session, error in
+           
+            if let session = session {
+                // Successful log in with Twitter
+                let authToken = session.authToken
+                let authTokenSecret = session.authTokenSecret
+                
+                print("signed in as \(session.userName)");
+                let info = "Username: \(session.userName) \n User ID: \(session.userID)"
+                self.twitterLogIn(viewContoller, token: authToken, secret: authTokenSecret)
+            } else {
+                print("error: \(String(describing: error?.localizedDescription))");
+            }
+        })
+    }
+    
+    
+    
     
 }
 

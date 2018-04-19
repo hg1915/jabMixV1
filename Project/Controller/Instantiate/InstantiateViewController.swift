@@ -46,3 +46,12 @@ func instantiatePreferencesViewController() -> PreferencesViewController{
     return UIViewController() as! PreferencesViewController
 }
 
+func instantiateMapViewController() -> MapViewController{
+    
+    if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: MapViewController.identifier) as? MapViewController{
+        return viewController
+    }
+    
+    return UIViewController() as! MapViewController
+}
+

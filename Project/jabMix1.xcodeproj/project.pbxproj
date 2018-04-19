@@ -10,11 +10,14 @@
 		6982B94720867ABC005F6AF3 /* LoginCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6982B94620867ABC005F6AF3 /* LoginCoordinator.swift */; };
 		6982B94920867AC8005F6AF3 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6982B94820867AC8005F6AF3 /* LoginViewModel.swift */; };
 		6982B94D20867B7C005F6AF3 /* FacebookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6982B94C20867B7C005F6AF3 /* FacebookService.swift */; };
-		6982B95020867BC1005F6AF3 /* TwitterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6982B94F20867BC1005F6AF3 /* TwitterService.swift */; };
 		6982B9522086E774005F6AF3 /* InstantiateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6982B9512086E774005F6AF3 /* InstantiateViewController.swift */; };
 		6982B9552086FB59005F6AF3 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6982B9542086FB59005F6AF3 /* Helpers.swift */; };
 		6982B95820870488005F6AF3 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6982B95720870488005F6AF3 /* Extensions.swift */; };
 		6982B95A20870C46005F6AF3 /* RealmSave.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6982B95920870C46005F6AF3 /* RealmSave.swift */; };
+		69A7B27C20888CCB008EBCC7 /* Extensions+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A7B27B20888CCB008EBCC7 /* Extensions+UIViewController.swift */; };
+		69A7B27E20889AE3008EBCC7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A7B27D20889AE3008EBCC7 /* MapViewController.swift */; };
+		69A7B28120889F5E008EBCC7 /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A7B28020889F5E008EBCC7 /* Extensions+UIView.swift */; };
+		69A7B2832088A33C008EBCC7 /* TapGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A7B2822088A33C008EBCC7 /* TapGestureRecognizer.swift */; };
 		7003E810203181DD0068F87E /* Classes in Resources */ = {isa = PBXBuildFile; fileRef = 7003E80F203181DD0068F87E /* Classes */; };
 		7003E81C203182730068F87E /* BEMCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 7003E814203182720068F87E /* BEMCheckBox.m */; };
 		7003E81D203182730068F87E /* BEMAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7003E815203182720068F87E /* BEMAnimationManager.m */; };
@@ -87,11 +90,14 @@
 		6982B94620867ABC005F6AF3 /* LoginCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginCoordinator.swift; sourceTree = "<group>"; };
 		6982B94820867AC8005F6AF3 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		6982B94C20867B7C005F6AF3 /* FacebookService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookService.swift; sourceTree = "<group>"; };
-		6982B94F20867BC1005F6AF3 /* TwitterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwitterService.swift; sourceTree = "<group>"; };
 		6982B9512086E774005F6AF3 /* InstantiateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstantiateViewController.swift; sourceTree = "<group>"; };
 		6982B9542086FB59005F6AF3 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		6982B95720870488005F6AF3 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		6982B95920870C46005F6AF3 /* RealmSave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmSave.swift; sourceTree = "<group>"; };
+		69A7B27B20888CCB008EBCC7 /* Extensions+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIViewController.swift"; sourceTree = "<group>"; };
+		69A7B27D20889AE3008EBCC7 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		69A7B28020889F5E008EBCC7 /* Extensions+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
+		69A7B2822088A33C008EBCC7 /* TapGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapGestureRecognizer.swift; sourceTree = "<group>"; };
 		7003E80F203181DD0068F87E /* Classes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Classes; sourceTree = SOURCE_ROOT; };
 		7003E814203182720068F87E /* BEMCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMCheckBox.m; path = Classes/BEMCheckBox.m; sourceTree = SOURCE_ROOT; };
 		7003E815203182720068F87E /* BEMAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMAnimationManager.m; path = Classes/BEMAnimationManager.m; sourceTree = SOURCE_ROOT; };
@@ -211,7 +217,6 @@
 				C71095A71FE2048800CBCA09 /* ForgotPasswordViewController.swift */,
 				C776EEB81FE2017500B90D6C /* LoginViewController.swift */,
 				6982B94C20867B7C005F6AF3 /* FacebookService.swift */,
-				6982B94F20867BC1005F6AF3 /* TwitterService.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -233,8 +238,19 @@
 				7003E813203182230068F87E /* Classes */,
 				C73EB32620057E830080167D /* IQKeyboardManagerSwift */,
 				6982B95920870C46005F6AF3 /* RealmSave.swift */,
+				69A7B27B20888CCB008EBCC7 /* Extensions+UIViewController.swift */,
+				69A7B28020889F5E008EBCC7 /* Extensions+UIView.swift */,
+				69A7B2822088A33C008EBCC7 /* TapGestureRecognizer.swift */,
 			);
 			path = Supporting;
+			sourceTree = "<group>";
+		};
+		69A7B27F20889AEE008EBCC7 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				69A7B27D20889AE3008EBCC7 /* MapViewController.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		7003E813203182230068F87E /* Classes */ = {
@@ -353,8 +369,8 @@
 				C7BF08381F89FFE800880BA0 /* View */,
 				C7F5DE2E1F8A024C00A49575 /* Controller */,
 				6982B9562086FB61005F6AF3 /* Supporting */,
-				C7AD3899201EC5A300DB4452 /* lucida-grande */,
 				C7BF08241F89FE8800880BA0 /* jabMix1 */,
+				C7AD3899201EC5A300DB4452 /* lucida-grande */,
 				C7BF08231F89FE8800880BA0 /* Products */,
 				01C0417269908443FE1FEE27 /* Pods */,
 				CA0363C61B9FEA25DC47FE16 /* Frameworks */,
@@ -398,6 +414,7 @@
 			children = (
 				6982B9532086E77A005F6AF3 /* Instantiate */,
 				6982B94E20867B8A005F6AF3 /* Login */,
+				69A7B27F20889AEE008EBCC7 /* Map */,
 				C76333311FEB4A27002DF78C /* NewTabBarViewController.swift */,
 				C76333351FEB5BFA002DF78C /* HomeTableViewController.swift */,
 				C7B3A7DA1FF4A678003A5A55 /* ProfilePageViewController.swift */,
@@ -658,9 +675,9 @@
 				C73EB34420057E830080167D /* IQKeyboardManagerConstants.swift in Sources */,
 				B00F28AC2015221B00567AB3 /* ChatsTableViewController.swift in Sources */,
 				C7832E281FEB6E7900781E1E /* UsersTableViewCell.swift in Sources */,
+				69A7B2832088A33C008EBCC7 /* TapGestureRecognizer.swift in Sources */,
 				C73EB34D20057E830080167D /* IQUIView+IQKeyboardToolbar.swift in Sources */,
 				C71095C71FE265F600CBCA09 /* PreferencesViewController.swift in Sources */,
-				6982B95020867BC1005F6AF3 /* TwitterService.swift in Sources */,
 				C7C6DFBE201AD4EC00A2D1BE /* DesignableUITextField.swift in Sources */,
 				C776EEB51FE1036200B90D6C /* ButtonCust.swift in Sources */,
 				C773B2872002F036005D8C11 /* UpdateInterestsViewController.swift in Sources */,
@@ -669,6 +686,7 @@
 				B058369F1FB42D6C00484D91 /* Request.swift in Sources */,
 				C7BBEB4E201B9FAA0085AFCE /* UIImage+Gif.swift in Sources */,
 				B00F28AF201538D300567AB3 /* ChatTableViewCell.swift in Sources */,
+				69A7B27E20889AE3008EBCC7 /* MapViewController.swift in Sources */,
 				6982B95820870488005F6AF3 /* Extensions.swift in Sources */,
 				7003E81C203182730068F87E /* BEMCheckBox.m in Sources */,
 				C7CBBC572031016E00E085C0 /* TermsViewController.swift in Sources */,
@@ -684,11 +702,13 @@
 				C7F668A41FF4BDAA00E590F1 /* SettingsViewController.swift in Sources */,
 				C73EB34720057E830080167D /* IQKeyboardReturnKeyHandler.swift in Sources */,
 				C73EB33E20057E830080167D /* IQNSArray+Sort.swift in Sources */,
+				69A7B28120889F5E008EBCC7 /* Extensions+UIView.swift in Sources */,
 				C76333321FEB4A27002DF78C /* NewTabBarViewController.swift in Sources */,
 				C73EB34920057E830080167D /* IQBarButtonItem.swift in Sources */,
 				C73EB34C20057E830080167D /* IQToolbar.swift in Sources */,
 				6982B94720867ABC005F6AF3 /* LoginCoordinator.swift in Sources */,
 				C795884C1F96CE80006FD7AA /* AuthService.swift in Sources */,
+				69A7B27C20888CCB008EBCC7 /* Extensions+UIViewController.swift in Sources */,
 				6982B94920867AC8005F6AF3 /* LoginViewModel.swift in Sources */,
 				7003E81D203182730068F87E /* BEMAnimationManager.m in Sources */,
 				6982B9552086FB59005F6AF3 /* Helpers.swift in Sources */,

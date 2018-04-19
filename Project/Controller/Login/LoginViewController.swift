@@ -9,6 +9,9 @@ import Foundation
 import TwitterKit
 
 protocol LoginViewControllerDelegate: class{
+    func loginEmailPressed(_ viewController: UIViewController, email: String, pass: String)
+    func facebookLoginPressed(_ viewController: UIViewController)
+    func twitterLoginPressed(_ viewContoller: UIViewController)
     
 }
 
@@ -36,25 +39,21 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, MFMailComposeV
     //MARK: Actions
     
     @IBAction func facebookLoginButtonPressed(_ sender: UIButton) {
+        delegate?.facebookLoginPressed(self)
     }
     
     @IBAction func twitterLoginButtonPressed(_ sender: UIButton) {
         // Twitter login attempt
-        TWTRTwitter.sharedInstance().logIn(completion: { session, error in
-            if let session = session {
-                // Successful log in with Twitter
-                print("signed in as \(session.userName)");
-                let info = "Username: \(session.userName) \n User ID: \(session.userID)"
-//                self.didLogin(method: "Twitter", info: info)
-            } else {
-                print("error: \(error?.localizedDescription)");
-            }
-        })
+        delegate?.twitterLoginPressed(self)
     }
     
     
     @IBAction func signInButton(_ sender: Any) {
-        signIn()
+        
+        delegate?.loginEmailPressed(self, email:  emailText.text!.lowercased().trimmingCharacters(in: .whitespacesAndNewlines), pass: passwordText.text!)
+        self.view.endEditing(true)
+        
+        
         
     }
     
@@ -86,74 +85,6 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, MFMailComposeV
         
     }
     
-    func signIn(){
-        self.view.endEditing(true)
-        let email = emailText.text!.lowercased()
-        let finalEmail = email.trimmingCharacters(in: .whitespacesAndNewlines)
-        let password = passwordText.text!
-        
-        if finalEmail.isEmpty || password.isEmpty {
-            
-            let alertController = UIAlertController(title: "Error!", message: "Please fill in all the fields.", preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "Ok", style: .cancel, handler: nil))
-            present(alertController, animated: true, completion: nil)
-            
-        }else {
-            SVProgressHUD.show()
-            
-            Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
-                
-                if error == nil {
-                    if let user = user {
-                        print("\(user.displayName!) has been signed in")
-                        
-                        SVProgressHUD.dismiss()
-                        
-                        self.present(instantiateMainTabBarViewController(), animated: true, completion: nil)
-                        
-                    }else{
-                        SVProgressHUD.dismiss()
-                        print("error")
-                        
-                        
-                        
-                        print(error?.localizedDescription as Any)
-                    }
-                }
-                else {
-                    SVProgressHUD.dismiss()
-                    let alert = UIAlertController(title: "Low Blow!", message: "Incorrect Credentials", preferredStyle: .alert)
-                    
-                    
-                    let action1 = UIAlertAction(title: "Contact Support", style: .default, handler: { (action) -> Void in
-                        
-                        let mailComposeViewController = self.configuredMailComposeViewController()
-                        if MFMailComposeViewController.canSendMail() {
-                            self.present(mailComposeViewController, animated: true, completion: nil)
-                        } else {
-                            self.showSendMailErrorAlert()
-                        }
-                        
-                        print("ACTION 1 selected!")
-                    })
-                    
-                    
-                    
-                    // Cancel button
-                    let cancel = UIAlertAction(title: "Try Again", style: .default , handler: { (action) -> Void in })
-                    
-                    
-                    // Add action buttons and present the Alert
-                    alert.addAction(action1)
-                    alert.addAction(cancel)
-                    self.present(alert, animated: true, completion: nil)
-                    
-                    
-                }
-            }
-        }
-        
-    }
 
     
     func setUpButtons(){
@@ -166,7 +97,6 @@ class LoginViewController: UIViewController, UIAlertViewDelegate, MFMailComposeV
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         self.navigationItem.title = "Login"
         self.tabBarController?.tabBar.isHidden = true

@@ -89,7 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         if Auth.auth().currentUser != nil {
             DispatchQueue.main.async {
-                 self.window?.rootViewController = instantiatePreferencesViewController()
+                 self.window?.rootViewController = instantiateMainTabBarViewController()
             }
         }
         

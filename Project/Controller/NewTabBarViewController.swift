@@ -10,6 +10,7 @@ class NewTabBarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         observeNumPendingRequests()
         observeNumUnseenConversations()
         // Do any additional setup after loading the view.
@@ -22,6 +23,7 @@ class NewTabBarViewController: UITabBarController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         sendFCMToken()
         observeNumPendingRequests()
         observeNumUnseenConversations()
@@ -36,6 +38,8 @@ class NewTabBarViewController: UITabBarController {
         // Observe if the app is opened from a notification
         // Typically from the foreground state
         NotificationCenter.default.addObserver(self, selector: #selector(showNotificationCenter), name: NotificationService.didLaunchFromNotification, object: nil)
+        
+        
         
     }
     
@@ -99,6 +103,7 @@ class NewTabBarViewController: UITabBarController {
         
         self.tabBar.items?[2].badgeValue = numUnseenConversations > 0 ? "\(numUnseenConversations)" : nil
     }
+    
     
     
 }
