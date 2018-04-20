@@ -177,7 +177,7 @@ open class LoginCoordinator: FBTwitterCredentials {
         }
     }
     
-    open func twitterLogIn(_ viewController: UIViewController, token: String, secret: String){
+    open func twitterLogIn(_ viewController: UIViewController, token: String, secret: String, session: TWTRSession){
         let credential = TwitterAuthProvider.credential(withToken: token, secret: secret)
         Auth.auth().signIn(with: credential) { (user, error) in
             if let error = error {
@@ -191,6 +191,8 @@ open class LoginCoordinator: FBTwitterCredentials {
                     
                     self.finish()
                     
+                    updateUserSingleProperty(user: user, type: UserUpdate.firstLastName, stringValue: session.userName, imageValue: nil)
+       
                     viewController.present(instantiateMainTabBarViewController(), animated: true, completion: nil)
                     
             }
@@ -334,7 +336,7 @@ extension LoginCoordinator: LoginViewControllerDelegate{
                 
                 print("signed in as \(session.userName)");
                 let info = "Username: \(session.userName) \n User ID: \(session.userID)"
-                self.twitterLogIn(viewContoller, token: authToken, secret: authTokenSecret)
+                self.twitterLogIn(viewContoller, token: authToken, secret: authTokenSecret, session: session)
             } else {
                 print("error: \(String(describing: error?.localizedDescription))");
             }

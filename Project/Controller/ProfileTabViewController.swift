@@ -86,8 +86,17 @@ var authService = AuthService()
     }
     func loadUserInfo(){
         
+        let dataBaseRef: DatabaseReference = {
+            return Database.database().reference()
+        }()
         
-        let userRef = dataBaseRef.child("users/\(Auth.auth().currentUser!.uid)")
+        let storageRef: StorageReference = {
+            return Storage.storage().reference()
+        }()
+        
+        let user = Auth.auth().currentUser!
+        
+        let userRef = dataBaseRef.child("users/\(user.uid)")
         
         userRef.observe(.value, with: { (snapshot) in
             
@@ -117,29 +126,34 @@ var authService = AuthService()
             
             if let imageOld = user.photoURL{
                 
-                
-                //  let imageURL = user.photoURL!
-                
-            
-                
-                self.storageR.reference(forURL: imageOld).getData(maxSize: 10 * 1024 * 1024, completion: { (imgData, error) in
+                if !imageOld.isEmpty{
                     
-                    if error == nil {
-                        DispatchQueue.main.async {
-                            if let data = imgData {
-                                self.profileImage.image = UIImage(data: data)
+                    //  let imageURL = user.photoURL!
+                    
+                    
+                    
+                    self.storageR.reference(forURL: imageOld).getData(maxSize: 10 * 1024 * 1024, completion: { (imgData, error) in
+                        
+                        if error == nil {
+                            DispatchQueue.main.async {
+                                if let data = imgData {
+                                    self.profileImage.image = UIImage(data: data)
+                                }
                             }
+                            
+                        }else {
+                            print(error!.localizedDescription)
+                            
                         }
                         
-                    }else {
-                        print(error!.localizedDescription)
-                        
                     }
-                    
+                        
+                        
+                    )
                 }
-                    
-                    
-                )}
+                
+                
+            }
             
             
         }) { (error) in

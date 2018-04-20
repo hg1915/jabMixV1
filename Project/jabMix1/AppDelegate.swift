@@ -6,6 +6,7 @@ import UserNotifications
 import GooglePlaces
 import TwitterKit
 import RealmSwift
+import FacebookLogin
 
 
 var currentUser:Users?
@@ -122,6 +123,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 UIApplication.shared.registerForRemoteNotifications()
             }
         
+    }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+       
+        let directedByTWTR =  TWTRTwitter.sharedInstance().application(app, open: url, options: options)
+       
+        return directedByTWTR
     }
     
 

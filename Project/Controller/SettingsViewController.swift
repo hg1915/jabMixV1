@@ -385,23 +385,25 @@ showAlert(message: "Email updated.")
             
             if let image = user.photoURL{
                 
-                
-                //  let imageURL = user.photoURL!
-                
-                self.storageRef.reference(forURL: image).getData(maxSize: 10 * 1024 * 1024, completion: { (imgData, error) in
+                if !image.isEmpty{
                     
-                    if error == nil {
-                        DispatchQueue.main.async {
-                            if let data = imgData {
-                                self.profileImage.image = UIImage(data: data)
+                    //  let imageURL = user.photoURL!
+                    
+                    self.storageRef.reference(forURL: image).getData(maxSize: 10 * 1024 * 1024, completion: { (imgData, error) in
+                        
+                        if error == nil {
+                            DispatchQueue.main.async {
+                                if let data = imgData {
+                                    self.profileImage.image = UIImage(data: data)
+                                }
                             }
+                            
+                        }else {
+                            print(error!.localizedDescription)
+                            
                         }
-                        
-                    }else {
-                        print(error!.localizedDescription)
-                        
-                    }
-                })
+                    })
+                }
                 
             }
             

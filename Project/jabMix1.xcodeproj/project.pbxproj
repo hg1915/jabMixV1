@@ -18,6 +18,10 @@
 		69A7B27E20889AE3008EBCC7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A7B27D20889AE3008EBCC7 /* MapViewController.swift */; };
 		69A7B28120889F5E008EBCC7 /* Extensions+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A7B28020889F5E008EBCC7 /* Extensions+UIView.swift */; };
 		69A7B2832088A33C008EBCC7 /* TapGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A7B2822088A33C008EBCC7 /* TapGestureRecognizer.swift */; };
+		69A7B2852089CCC7008EBCC7 /* FirebaseUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A7B2842089CCC7008EBCC7 /* FirebaseUpdate.swift */; };
+		69A7B2882089EB6C008EBCC7 /* AddImagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A7B2862089EB6C008EBCC7 /* AddImagesCell.swift */; };
+		69A7B2892089EB6C008EBCC7 /* AddImagesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69A7B2872089EB6C008EBCC7 /* AddImagesCell.xib */; };
+		69A7B28B2089EB93008EBCC7 /* AddImagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69A7B28A2089EB93008EBCC7 /* AddImagesViewModel.swift */; };
 		7003E810203181DD0068F87E /* Classes in Resources */ = {isa = PBXBuildFile; fileRef = 7003E80F203181DD0068F87E /* Classes */; };
 		7003E81C203182730068F87E /* BEMCheckBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 7003E814203182720068F87E /* BEMCheckBox.m */; };
 		7003E81D203182730068F87E /* BEMAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7003E815203182720068F87E /* BEMAnimationManager.m */; };
@@ -98,6 +102,10 @@
 		69A7B27D20889AE3008EBCC7 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		69A7B28020889F5E008EBCC7 /* Extensions+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extensions+UIView.swift"; sourceTree = "<group>"; };
 		69A7B2822088A33C008EBCC7 /* TapGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapGestureRecognizer.swift; sourceTree = "<group>"; };
+		69A7B2842089CCC7008EBCC7 /* FirebaseUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUpdate.swift; sourceTree = "<group>"; };
+		69A7B2862089EB6C008EBCC7 /* AddImagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImagesCell.swift; sourceTree = "<group>"; };
+		69A7B2872089EB6C008EBCC7 /* AddImagesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddImagesCell.xib; sourceTree = "<group>"; };
+		69A7B28A2089EB93008EBCC7 /* AddImagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImagesViewModel.swift; sourceTree = "<group>"; };
 		7003E80F203181DD0068F87E /* Classes */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Classes; sourceTree = SOURCE_ROOT; };
 		7003E814203182720068F87E /* BEMCheckBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMCheckBox.m; path = Classes/BEMCheckBox.m; sourceTree = SOURCE_ROOT; };
 		7003E815203182720068F87E /* BEMAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEMAnimationManager.m; path = Classes/BEMAnimationManager.m; sourceTree = SOURCE_ROOT; };
@@ -197,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				6982B94820867AC8005F6AF3 /* LoginViewModel.swift */,
+				69A7B28A2089EB93008EBCC7 /* AddImagesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -241,6 +250,7 @@
 				69A7B27B20888CCB008EBCC7 /* Extensions+UIViewController.swift */,
 				69A7B28020889F5E008EBCC7 /* Extensions+UIView.swift */,
 				69A7B2822088A33C008EBCC7 /* TapGestureRecognizer.swift */,
+				69A7B2842089CCC7008EBCC7 /* FirebaseUpdate.swift */,
 			);
 			path = Supporting;
 			sourceTree = "<group>";
@@ -278,6 +288,8 @@
 				B00F28AD201538D300567AB3 /* ChatTableViewCell.swift */,
 				B00F28AE201538D300567AB3 /* ChatTableViewCell.xib */,
 				B0706322201A8AFE0026AACB /* JabTableViewCell.xib */,
+				69A7B2862089EB6C008EBCC7 /* AddImagesCell.swift */,
+				69A7B2872089EB6C008EBCC7 /* AddImagesCell.xib */,
 			);
 			name = Cells;
 			path = View/Cells;
@@ -528,6 +540,7 @@
 				B00F28B0201538D300567AB3 /* ChatTableViewCell.xib in Resources */,
 				7003E810203181DD0068F87E /* Classes in Resources */,
 				C79D319D20217C3A00D68E84 /* newBG.png in Resources */,
+				69A7B2892089EB6C008EBCC7 /* AddImagesCell.xib in Resources */,
 				C7BF08301F89FE8800880BA0 /* LaunchScreen.storyboard in Resources */,
 				C7A12CB0202171C700F88994 /* jmbg in Resources */,
 				B03F56901FB264CA00A3A6BD /* Assets.xcassets in Resources */,
@@ -663,6 +676,8 @@
 				6982B95A20870C46005F6AF3 /* RealmSave.swift in Sources */,
 				C73EB34820057E830080167D /* IQTextView.swift in Sources */,
 				C73EB34A20057E830080167D /* IQPreviousNextView.swift in Sources */,
+				69A7B2852089CCC7008EBCC7 /* FirebaseUpdate.swift in Sources */,
+				69A7B28B2089EB93008EBCC7 /* AddImagesViewModel.swift in Sources */,
 				C7BF08261F89FE8800880BA0 /* AppDelegate.swift in Sources */,
 				B0706323201A8AFE0026AACB /* JabTableViewCell.swift in Sources */,
 				C73EB34520057E830080167D /* IQKeyboardManagerConstantsInternal.swift in Sources */,
@@ -694,6 +709,7 @@
 				C776EEB91FE2017500B90D6C /* LoginViewController.swift in Sources */,
 				C7F4CA891FA6DFC500450690 /* Extensions+UIImageView.swift in Sources */,
 				C7B3A7DB1FF4A678003A5A55 /* ProfilePageViewController.swift in Sources */,
+				69A7B2882089EB6C008EBCC7 /* AddImagesCell.swift in Sources */,
 				C7E14FE1200855EA00133BB7 /* JabsViewController.swift in Sources */,
 				B00504AD1FB506A00000664B /* RequestDetailViewController.swift in Sources */,
 				C7C9B0C1200303740056394F /* SendRequestViewController.swift in Sources */,

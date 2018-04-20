@@ -79,7 +79,7 @@ class ProfilePageViewController: UIViewController, UIAlertViewDelegate, MFMailCo
         
         profileImage.layer.borderWidth = 1
         profileImage.layer.masksToBounds = false
-    profileImage.layer.borderColor = UIColor.white.cgColor
+        profileImage.layer.borderColor = UIColor.white.cgColor
         profileImage.layer.cornerRadius = profileImage.frame.height/2
         profileImage.clipsToBounds = true
         

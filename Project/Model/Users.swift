@@ -15,6 +15,13 @@ struct Users: UserInformation {
     var firstLastName: String? = ""
     var interests: String? = ""
     var password: String? = ""
+    var images: Dictionary<String, Any>
+//    var img1: String? = ""
+//    var img2: String? = ""
+//    var img3: String? = ""
+//    var img4: String? = ""
+//    var img5: String? = ""
+//    var img6: String? = ""
     
     
     init(snapshot: DataSnapshot) {
@@ -28,6 +35,7 @@ struct Users: UserInformation {
             self.photoURL = snap["photoURL"] as? String
             self.biography = snap["biography"] as? String
             self.firstLastName = snap["firstLastName"] as? String
+            self.images = (snap["images"] as? Dictionary<String,String>)!
             
         }
         
