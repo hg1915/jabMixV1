@@ -45,9 +45,6 @@ class AddImagesViewModel: NSObject{
             }) { (error) in
                 print(error.localizedDescription)
             }
-            
-            
-        
     }
 }
 

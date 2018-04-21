@@ -95,7 +95,7 @@ func updateUserSingleProperty(user: User, type: UserUpdate, stringValue: String?
                     
                     let userRef = dataBaseRef.child("users").child((user.uid))
                     
-                    userRef.updateChildValues([type:data])
+                    userRef.updateChildValues([type.type():data])
                     
                     print("user info set")
                 }
