@@ -14,3 +14,8 @@ extension UIResponder {
         return String(describing: self)
     }
 }
+
+extension Notification.Name{
+    static let reloadProfileCollectionView = Notification.Name("kvReloadCollectionProfile")
+}
+

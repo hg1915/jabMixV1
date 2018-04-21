@@ -9,75 +9,35 @@
 import Foundation
 import UIKit
 import FirebaseDatabase
+import FirebaseAuth
+import FirebaseStorage
 
 class AddImagesViewModel: NSObject{
     
+    var viewController: UIViewController?
     var images = [String]()
+    var dataBaseRef: DatabaseReference {
+        return Database.database().reference()
+    }
     
     override init() {
         super.init()
-        loadImages()
        
     }
     
+    
+    
     func loadImages(){
         
-            let userRef = dataBaseRef.child("users/\(Auth.auth().currentUser!.uid)")
+            let userRef = dataBaseRef.child("users/\(Auth.auth().currentUser!.uid)/images")
             
             userRef.observe(.value, with: { (snapshot) in
-                
-                let user = Users(snapshot: snapshot)
-                
-                if let username = user.firstLastName{
-                    self.name.text = username
-                    self.nameOld = username
-                }
-                
-                if let pass = user.password{
-                    self.passwordOld = pass
-                }
-                
-                if let userLocation = user.location{
-                    self.location.text = userLocation
-                    self.locationOld = userLocation
-                }
-                if let bio = user.biography{
-                    self.biog.text = bio
-                    self.bioOld = bio
-                }
-                if let interests = user.interests{
-                    self.interests.text = interests
-                    self.interestsOld = interests
-                }
-                
-                if let imageOld = user.photoURL{
-                    
-                    if !imageOld.isEmpty{
-                        
-                        //  let imageURL = user.photoURL!
-                        
-                        
-                        
-                        self.storageR.reference(forURL: imageOld).getData(maxSize: 10 * 1024 * 1024, completion: { (imgData, error) in
-                            
-                            if error == nil {
-                                DispatchQueue.main.async {
-                                    if let data = imgData {
-                                        self.profileImage.image = UIImage(data: data)
-                                    }
-                                }
-                                
-                            }else {
-                                print(error!.localizedDescription)
-                                
-                            }
-                            
-                        }
-                            
-                            
-                        )
-                    }
-                    
+                print(snapshot as Any)
+                if let images = snapshot.value as? Dictionary<String, String>{
+                    self.images.removeAll()
+                    for image in images{
+                        self.images.append(image.value)                    }
+                    NotificationCenter.default.post(.init(name: .reloadProfileCollectionView))
                     
                 }
                 
@@ -90,3 +50,48 @@ class AddImagesViewModel: NSObject{
         
     }
 }
+
+extension AddImagesViewModel: UICollectionViewDataSource, UICollectionViewDelegate{
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if images.count <= 5{
+            return images.count + 1
+        }
+        return images.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddImagesCell.identifier, for: indexPath) as? AddImagesCell{
+            
+            cell.viewController = self.viewController
+            
+            if images.count < 6 && images.count > 0{
+                if indexPath.row < images.count{
+                    cell.configure(url: images[indexPath.row])
+                }
+                
+            }
+            
+            return cell
+        }
+        
+        return AddImagesCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("add image selected")
+                var type: UserUpdate!
+                if let vc = viewController as? ProfileTabViewController{
+                    if indexPath.row == 0 {type = .img1} else if indexPath.row == 1{type = .img2} else if indexPath.row == 2{type = .img3} else if indexPath.row == 3{type = .img4} else if indexPath.row == 4{type = .img5} else if indexPath.row == 5{type = .img6}
+                    vc.imageType = type
+                    vc.choosePictureAction()
+                }
+            
+            
+        
+    }
+    
+    
+}
+
+

@@ -7,8 +7,9 @@ import FirebaseAuth
 import Firebase
 
 class ProfileTabViewController: UIViewController {
-
-
+    
+    
+    @IBOutlet weak var imagesCollectionView: UICollectionView!
     
     @IBOutlet weak var biog: UILabel!
     
@@ -18,80 +19,57 @@ class ProfileTabViewController: UIViewController {
     
     @IBOutlet weak var location: UILabel!
     
-var authService = AuthService()
-    
     @IBOutlet weak var interests: UILabel!
     
-
+    
+    let addImagesViewModel = AddImagesViewModel()
+    let authService = AuthService()
     
     var user: User!
-    
+    var imageType: UserUpdate? = UserUpdate.profileImage
     var dataBaseRef: DatabaseReference!{
         return Database.database().reference()
     }
     var storageRef: StorageReference!{
         return Storage.storage().reference()
     }
- 
-    func updatePhoto() {
-        
-    let user = Auth.auth().currentUser
-        
-        let newPhoto = profileImage.image
-        
-        let imgData = UIImageJPEGRepresentation(newPhoto!, 0.7)!
-  
     
-        let imagePath: String = "profileImage\(user!.uid)/userPic.jpg"
-       
-       
+    
+    var nameOld = String()
+    var uid = String()
+    var locationOld = String()
+    var bioOld = String()
+    var interestsOld = String()
+    var passwordOld = String()
+    var emailString = String()
+    var photoUrlOld = String()
+    
+    func updatePhoto(type: UserUpdate, image: UIImage) {
         
-        let imageRef = storageRef.child(imagePath)
-        
-        let metaData = StorageMetadata()
-        metaData.contentType = "image/jpeg"
-        imageRef.putData(imgData as Data, metadata: metaData){(newMetaData, error)
-            in
-            if error == nil{
-                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
-                if let photoURL = newMetaData!.downloadURL(){
-                    changeRequest?.photoURL = photoURL
-                    
-                changeRequest?.commitChanges(completion: { (error) in
-                    if error == nil{
-                        let user = Auth.auth().currentUser
-                        let userInfo = ["firstLastName": self.nameOld,  "email": user?.email, "password": self.passwordOld, "location": self.locationOld, "interests": self.interestsOld, "biography": self.bioOld, "uid": user?.uid, "photoURL": photoURL.absoluteString]
-                        
-                        let userRef = self.dataBaseRef.child("users").child((user?.uid)!)
-                        userRef.setValue(userInfo)
-                        
-                    }
-                    
-                    print("user info set")
-                    
-                    })
+        if let user = Auth.auth().currentUser{
+            
+            updateUserSingleProperty(user: user, type: type, stringValue: nil, imageValue: image, completion: { done in
+                if done{
+                    self.createAlert(title: "Image", message: "Image uploaded!")
+                    self.imagesCollectionView.reloadData()
+                } else {
+                    self.createAlert(title: "Error", message: "Image failed upload!")
                 }
-        
-            }
-        
-
-        
-        
+            })
+            
         }
+        
     }
     
     var storageR: Storage {
         
         return Storage.storage()
     }
+    
     func loadUserInfo(){
         
         let dataBaseRef: DatabaseReference = {
             return Database.database().reference()
-        }()
-        
-        let storageRef: StorageReference = {
-            return Storage.storage().reference()
         }()
         
         let user = Auth.auth().currentUser!
@@ -124,13 +102,19 @@ var authService = AuthService()
                 self.interestsOld = interests 
             }
             
+//            if let images = user.images{
+//                self.addImagesViewModel.images.removeAll()
+//                for image in images{
+//
+//                    self.addImagesViewModel.images.append(image.value)
+//                }
+//            }
+            
             if let imageOld = user.photoURL{
                 
                 if !imageOld.isEmpty{
                     
                     //  let imageURL = user.photoURL!
-                    
-                    
                     
                     self.storageR.reference(forURL: imageOld).getData(maxSize: 10 * 1024 * 1024, completion: { (imgData, error) in
                         
@@ -163,54 +147,49 @@ var authService = AuthService()
         
     }
     
-
-    var nameOld = String()
-    var uid = String()
-    var locationOld = String()
-    var bioOld = String()
-    var interestsOld = String()
-    var passwordOld = String()
-    var emailString = String()
-    var photoUrlOld = String()
-        
     override func viewWillAppear(_ animated: Bool) {
         loadUserInfo()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.addImagesViewModel.viewController = self
+        
+        self.imagesCollectionView.register(AddImagesCell.nib, forCellWithReuseIdentifier: AddImagesCell.identifier)
+        self.imagesCollectionView.delegate = addImagesViewModel
+        self.imagesCollectionView.dataSource = addImagesViewModel
         
         profileImage.layer.cornerRadius = profileImage.frame.size.width/2
-        
-        
- 
         profileImage.layer.borderWidth = 1
-     //   profileImage.layer.masksToBounds = false
         profileImage.layer.borderColor = UIColor.white.cgColor
-      //  profileImage.layer.cornerRadius = profileImage.frame.height/2
         profileImage.clipsToBounds = true
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-//        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-//        self.navigationController?.navigationBar.shadowImage = UIImage()
-//        self.navigationController?.navigationBar.isTranslucent = true
-//        self.navigationController?.view.backgroundColor = UIColor.clear
-//        
         self.navigationController?.navigationBar.tintColor = UIColor.white
         self.navigationItem.title = "PROFILE"
         
         setGestureRecognizersToDismissKeyboard()
-      //  loadUserInfo()
+        //  loadUserInfo()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reloadCollectionView), name: .reloadProfileCollectionView, object: nil)
     }
-
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.addImagesViewModel.loadImages()
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-
-
+    @objc func reloadCollectionView(){
+        self.imagesCollectionView.reloadData()
+    }
+    
+    
+    
 }
 
 
@@ -221,16 +200,16 @@ extension ProfileTabViewController:UIPickerViewDelegate,UIImagePickerControllerD
     
     
     func setGestureRecognizersToDismissKeyboard(){
-        let imageTapGesture = UITapGestureRecognizer(target: self, action: #selector(ProfileTabViewController.choosePictureAction(sender:)))
+        let imageTapGesture = UITapGestureRecognizer(target: self, action: #selector(ProfileTabViewController.choosePictureAction))
         imageTapGesture.numberOfTapsRequired = 1
         profileImage.addGestureRecognizer(imageTapGesture)
         
-      
+        
     }
     
     
     
-    @objc func choosePictureAction(sender: AnyObject) {
+    @objc func choosePictureAction() {
         
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
@@ -262,32 +241,36 @@ extension ProfileTabViewController:UIPickerViewDelegate,UIImagePickerControllerD
         alertController.addAction(savedPhotosAction)
         alertController.addAction(cancelAction)
         
-        
-        self.present(pickerController, animated: true, completion: nil)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info[UIImagePickerControllerOriginalImage]  as? UIImage{
-            self.profileImage.image = image
-            updatePhoto()
-            loadUserInfo()
+        
+        if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
+            if imageType == UserUpdate.profileImage{
+                self.profileImage.image = image
+                updatePhoto(type: .profileImage, image: image)
+                loadUserInfo()
+            } else {
+                if let type = self.imageType{
+                    
+                    updatePhoto(type: type, image: image)
+                    loadUserInfo()
+                }
+            }
         }
-        else if let image = info[UIImagePickerControllerEditedImage] as? UIImage {
-            self.profileImage.image = image
-            updatePhoto()
-            loadUserInfo()
-        }
+        
         self.dismiss(animated: true, completion: nil)
     }
     
-
+    
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)
     }
     
-
+    
     
 }
 
@@ -304,4 +287,5 @@ extension UIImageView {
         self.image = anyImage
     }
 }
+
 

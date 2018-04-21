@@ -11,6 +11,7 @@ struct AuthService{
     var dataBaseRef: DatabaseReference!{
         return Database.database().reference()
     }
+    
     var storageRef: StorageReference!{
         return Storage.storage().reference()
     }

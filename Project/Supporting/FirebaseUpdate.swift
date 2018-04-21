@@ -34,7 +34,7 @@ enum UserUpdate: String{
     }
 }
 
-func updateUserSingleProperty(user: User, type: UserUpdate, stringValue: String?, imageValue: UIImage? ){
+func updateUserSingleProperty(user: User, type: UserUpdate, stringValue: String?, imageValue: UIImage?, completion:@escaping(Bool) -> () ){
     
     let dataBaseRef: DatabaseReference = {
         return Database.database().reference()
@@ -67,12 +67,20 @@ func updateUserSingleProperty(user: User, type: UserUpdate, stringValue: String?
                             let userRef = dataBaseRef.child("users").child((user.uid))
                             
                             if type == UserUpdate.profileImage{
-                                userRef.updateChildValues(["photoURL" : photoURL])
+                                let imageString = String(describing: photoURL)
+                                
+                                userRef.updateChildValues(["photoURL" : imageString])
+                                completion(true)
+                                
                             } else {
-                                userRef.child("images").updateChildValues([type.type():photoURL])
+                                let imageString = String(describing: photoURL)
+                                userRef.child("images").updateChildValues([type.type():imageString])
+                                completion(true)
+                                
                             }
                             print("user info set")
                         }
+                        completion(false)
                         
                     })
                 }
@@ -104,12 +112,12 @@ func updateUserDictionary(user:User, info: Dictionary<UserUpdate, Any>){
             for value in info{
                 if let update = value.value as? String{
                     
-                    updateUserSingleProperty(user: user, type: value.key, stringValue: update, imageValue: nil)
+                    updateUserSingleProperty(user: user, type: value.key, stringValue: update, imageValue: nil, completion: {_ in })
                     
                 } else
                     if let image = value.value as? UIImage{
                         
-                        updateUserSingleProperty(user: user, type: value.key, stringValue: nil, imageValue: image)
+                        updateUserSingleProperty(user: user, type: value.key, stringValue: nil, imageValue: image, completion: {_ in})
                 }
             }
             

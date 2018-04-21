@@ -191,7 +191,7 @@ open class LoginCoordinator: FBTwitterCredentials {
                     
                     self.finish()
                     
-                    updateUserSingleProperty(user: user, type: UserUpdate.firstLastName, stringValue: session.userName, imageValue: nil)
+                    updateUserSingleProperty(user: user, type: UserUpdate.firstLastName, stringValue: session.userName, imageValue: nil, completion: {_ in})
        
                     viewController.present(instantiateMainTabBarViewController(), animated: true, completion: nil)
                     
@@ -219,9 +219,7 @@ open class LoginCoordinator: FBTwitterCredentials {
     func toLogin(_ viewController: UIViewController){
         navigationController.navigationController?.popViewController(animated: true)
         navigationController.pushViewController(loginViewController, animated: true)
-    }
-    
-    
+    } 
 }
 
 extension LoginCoordinator: SignUpViewControllerDelegate{
